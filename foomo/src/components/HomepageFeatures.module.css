@@ -1,0 +1,20 @@
+.features {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+.features .feature {
+  padding: 1rem;
+  /* border: 1px solid #eeeeee; */
+  border-radius: .5rem;
+  margin: 1rem 0;
+  background-color: #fafafa;
+}
+
+.featureSvg {
+  height: 200px;
+  width: 200px;
+}
+
+
