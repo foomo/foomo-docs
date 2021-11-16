@@ -2,6 +2,6 @@
 sidebar_label: Intro
 sidebar_position: 1
 ---
+# Monitoring and Alerting
 
-# How we run applications in the cloud
 
