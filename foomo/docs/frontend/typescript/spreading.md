@@ -2,9 +2,12 @@
 
 JavaScript spread syntax `(...)` is a surprisingly powerful construct. It has two main use cases in our applications:
 
-## Efficiently copying data
+## Shallow copying
 
-The most important use case for this is when you are working with your applications state.
+Spreading creates new instances of objects or array, but we need to be very careful because it only does a shallow copy.
+If you have a deeply nested object or array, nested entities will still hold a reference to an original value and hence dangerous bugs can occur.
+
+Copying is needed when doing state changes (either local or state management e.g. Redux).
 
 ```jsx live
 function () {
@@ -53,7 +56,7 @@ function () {
 ## Populating jsx attributes
 
 ```jsx live
-function() {
+function App() {
     // a simple Component, that will render all fields in props
     const Foo = (props) => (
         <ul>
@@ -74,15 +77,39 @@ function() {
         b: 2,
         c: 3
     }
-    const {c,...part} = data;
+
+    const { c, ...omittedObject } = data;
     return (
         <>
-            <p>all data props</p>
+            {/*
+              Each of the `data` fields are spreaded as props
+            */}
+            <p>Spread all props</p>
             <Foo {...data}/>
-            <p>all data props and d</p>
+
+            <p>Add additional prop</p>
+            {/*
+              After we spread, we also add `d` prop.
+            */}
             <Foo {...data} d={4}/>
-            <p>just a part of the props, @themre please explain ;)</p>
-            <Foo {...part}/>
+
+            <p>Order of props is important</p>
+            {/*
+              We will replace `a` with 10
+            */}
+            <Foo {...data} a={10} />
+            {/*
+              But this won't replace original `a` with 10
+            */}
+            <Foo a={10} {...data} />
+
+            <p>Omit certain properties</p>
+            {/*
+              If you wish to omit certain fields, you need to write fields 
+              that you wish to omit and with `...{newVariableName}` you will create a new
+              object with that name. In our part it's `omittedObject` name.
+            */}
+            <Foo {...omittedObject} />
         </>
     );
 }
