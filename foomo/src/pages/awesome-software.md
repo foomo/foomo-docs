@@ -2,6 +2,11 @@
 
 A list of commercial and open source software we use, because it is awesome.
 
+<div className="alert alert--danger" role="alert">
+    Please note, when you are installing software, <strong>use a package manager</strong>
+</div>
+<br/>
+
 ## desktop software
 
 ### devtools

@@ -4,28 +4,23 @@ sidebar_position: 2
 ---
 # Frontend setup
 
-How to setup your machine
+How to setup your machine for frontend development
 
-```jsx live
-function Clock(props) {
+## Install software
 
-  const [date, setDate] = useState(new Date());
+### Mac
 
-  useEffect(() => {
-    var timerID = setInterval(() => tick(), 1000);
-    return function cleanup() {
-      clearInterval(timerID);
-    };
-  });
+First of all install `brew` from https://brew.sh
 
-  function tick() {
-    setDate(new Date());
-  }
-
-  return (
-    <div>
-      <h2>It is {date.toLocaleTimeString()}.</h2>
-    </div>
-  );
-}
+```zsh
+brew install nvm
+brew cask install iterm2
 ```
+
+### Linux
+
+
+
+### Windows
+
+Install Linux ;)
