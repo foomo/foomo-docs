@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 
+
+if(typeof localStorage == "undefined") {
+  var localStorage = {setItem:(name, value) => {}, getItem: (name) => {return null}};
+}
+
 export const IsItCool = (props: {
   children: any;
   topic: string;
