@@ -33,4 +33,6 @@ Declarative components and views, fast to develop and fast at runtime.
 
 ## gotsrpc
 
-Since we are building services in Go and not with Node.js we have created a light weight RPC framework to integrate TypeScript with Go.
+Since we are building services in Go and not with Node.js we have created a light weight RPC framework to integrate TypeScript with Go. 
+
+When creating TS definitions on the Go side we follow **camel case** convention of naming fields e.g. `lastDateModified` instead of `LastDateModified`.
