@@ -6,16 +6,17 @@
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'foomo project docs',
-  tagline: 'stuff we wrote, because nobody else wanted to',
-  url: 'https://foomo.org',
-  baseUrl: '/',
+  title: 'Foomo Project Docs',
+  tagline: 'Stuff we wrote, because nobody else wanted to',
+  url: "https://foomo.github.io/",
+  baseUrl: '/foomo-docs/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'bestbytes', // Usually your GitHub org/user name.
-  projectName: 'foomo', // Usually your repo name.
-
+  organizationName: 'foomo', // Usually your GitHub org/user name.
+  projectName: 'foomo-docs', // Usually your repo name.
+  deploymentBranch: 'gh-pages',
+  trailingSlash: false,
 
   presets: [
     [
