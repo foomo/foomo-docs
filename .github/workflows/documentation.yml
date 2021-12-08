@@ -17,6 +17,7 @@ jobs:
         with:
           node-version: '12.x'
       - name: Test Build
+        working-directory: foomo
         run: |
           if [ -e yarn.lock ]; then
             yarn install --frozen-lockfile
@@ -38,6 +39,7 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.GH_PAGES_DEPLOY }}
       - name: Release to GitHub Pages
+        working-directory: foomo
         env:
           USE_SSH: true
           GIT_USER: git
