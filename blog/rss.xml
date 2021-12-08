@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>foomo project docs Blog</title>
+        <link>https://foomo.org/blog</link>
+        <description>foomo project docs Blog</description>
+        <lastBuildDate>Fri, 12 Nov 2021 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[Relaunching foomo.org]]></title>
+            <link>https://foomo.org/blog/welcome-back-2021</link>
+            <guid>welcome-back-2021</guid>
+            <pubDate>Fri, 12 Nov 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[A few years ago we abandoned the previous version of https//www.github.com/foomo .]]></description>
+            <content:encoded><![CDATA[<p>A few years ago we abandoned the previous version of <a href="https://www.foomo.org">https://www.foomo.org</a> as we did not want to maintain the old wordpress installation and the project was only living in README.md in the repos living under <a href="https://www.github.com/foomo">https://www.github.com/foomo</a> .</p><p>As things have grown over time we have decided to re-launch a website / cross project documentation.</p><p>So welcome back and enjoy the view to the past:</p><p><img src="blast-from-the-past.png" alt="blast from the past"/></p>]]></content:encoded>
+        </item>
+    </channel>
+</rss>
