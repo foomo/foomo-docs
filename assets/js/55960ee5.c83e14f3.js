@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkfoomo=self.webpackChunkfoomo||[]).push([[4121],{8070:function(o){o.exports=JSON.parse('[{"name":"frontend","permalink":"/foomo-docs/docs/tags/frontend","count":1},{"name":"overview","permalink":"/foomo-docs/docs/tags/overview","count":1}]')}}]);
