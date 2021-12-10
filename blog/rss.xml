@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>Foomo Project Docs Blog</title>
-        <link>https://foomo.github.io/foomo-docs/blog</link>
+        <link>https://foomo.org/blog</link>
         <description>Foomo Project Docs Blog</description>
         <lastBuildDate>Fri, 12 Nov 2021 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <item>
             <title><![CDATA[Relaunching foomo.org]]></title>
-            <link>https://foomo.github.io/foomo-docs/blog/welcome-back-2021</link>
+            <link>https://foomo.org/blog/welcome-back-2021</link>
             <guid>welcome-back-2021</guid>
             <pubDate>Fri, 12 Nov 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[A few years ago we abandoned the previous version of https//www.github.com/foomo .]]></description>

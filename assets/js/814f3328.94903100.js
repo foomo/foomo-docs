@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkfoomo=self.webpackChunkfoomo||[]).push([[2535],{5641:function(o){o.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Relaunching foomo.org","permalink":"/foomo-docs/blog/welcome-back-2021"}]}')}}]);

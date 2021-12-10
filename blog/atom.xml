@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://foomo.github.io/foomo-docs/blog</id>
+    <id>https://foomo.org/blog</id>
     <title>Foomo Project Docs Blog</title>
     <updated>2021-11-12T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://foomo.github.io/foomo-docs/blog"/>
+    <link rel="alternate" href="https://foomo.org/blog"/>
     <subtitle>Foomo Project Docs Blog</subtitle>
-    <icon>https://foomo.github.io/foomo-docs/img/favicon.ico</icon>
+    <icon>https://foomo.org/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[Relaunching foomo.org]]></title>
         <id>welcome-back-2021</id>
-        <link href="https://foomo.github.io/foomo-docs/blog/welcome-back-2021"/>
+        <link href="https://foomo.org/blog/welcome-back-2021"/>
         <updated>2021-11-12T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[A few years ago we abandoned the previous version of https//www.github.com/foomo .]]></summary>
         <content type="html"><![CDATA[<p>A few years ago we abandoned the previous version of <a href="https://www.foomo.org">https://www.foomo.org</a> as we did not want to maintain the old wordpress installation and the project was only living in README.md in the repos living under <a href="https://www.github.com/foomo">https://www.github.com/foomo</a> .</p><p>As things have grown over time we have decided to re-launch a website / cross project documentation.</p><p>So welcome back and enjoy the view to the past:</p><p><img src="blast-from-the-past.png" alt="blast from the past"/></p>]]></content>
