@@ -8,8 +8,8 @@
 const config = {
   title: 'Foomo Project Docs',
   tagline: 'Stuff we wrote, because nobody else wanted to',
-  url: "https://foomo.github.io/",
-  baseUrl: '/foomo-docs/',
+  url: "https://foomo.org/",
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
