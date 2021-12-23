@@ -13,6 +13,11 @@ A list of commercial and open source software we use, because it is awesome.
 
 - docker for desktop https://www.docker.com/
 
+#### IDEs
+
+- goland https://www.jetbrains.com/go
+- vscode https://code.visualstudio.com/
+
 ### creative tools
 
 - blender https://blender.org
