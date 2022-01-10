@@ -8,7 +8,7 @@ This is a general setup guide for your computer. Make sure that you setup your [
 
 ## Privacy and security
 
-Follow the instructions on [security](security) when you setup and maintain your system.
+Follow the instructions on [security](../security) when you setup and maintain your system.
 
 ## Install software
 
