@@ -3,9 +3,11 @@ id: intro
 sidebar_label: Intro
 sidebar_position: 1
 ---
-# Introduction
+# Frontend Guide
 
-Let me share a few thoughts on frontend development from our journey [@bestbytes](https://www.bestbytes.com) the company behind [foomo.org](https://www.foomo.org).
+In this section you will find a guide on how to develop frontends with the foomo stack. Please also see the [general guide](../general/intro).
+
+Let me share a few thoughts on frontend development from our journey [@bestbytes](https://www.bestbytes.com) the company behind https://www.foomo.org .
 
 Web development has been a wild ride since the beginning of the www in the mid 1990s. Today we take it as granted, that the default way to build applications is with web technologies.
 

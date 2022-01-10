@@ -1,18 +1,20 @@
-import React from "react";
+import React, { ReactChildren } from "react";
 import clsx from "clsx";
 import Layout from "@theme/Layout";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import styles from "./index.module.css";
 import HomepageFeatures from "../components/HomepageFeatures";
 
-function HomepageHeader() {
+const HomepageHeader = () => {
   const { siteConfig } = useDocusaurusContext();
   return (
     <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <div className="container">
         <img
           style={{
-            maxWidth: "200px",
+            width: "200px",
+            height: "200px",
+            backgroundColor: "black",
             border: "1px white solid",
             borderRadius: "1rem",
           }}
@@ -25,7 +27,29 @@ function HomepageHeader() {
       </div>
     </header>
   );
-}
+};
+
+const ImportantLink = (props: { href: string; children: any }) => {
+  return (
+    <span
+      style={{
+        fontWeight: "bold",
+        backgroundColor: "#ffea00",
+        border: "none",
+        // borderRadius: "2px",
+        padding: "1px 4px",
+        textShadow: "1px 1px 2px #00000081"
+      }}
+      title={props.href}
+      >
+      <a href={props.href} style={{
+        color: "white",
+      }}>
+        {props.children}
+      </a>
+    </span>
+  );
+};
 
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
@@ -46,26 +70,37 @@ export default function Home(): JSX.Element {
         <br />
         <p>
           <b>foomo</b> is an open source project, that has been maintained by
-          the <a href="https://www.bestbytes.com">bestbytes</a> team since 2011.
-          It provides a wide range of tools and libraries, that help us to
-          tackle challenging projects.
+          the{" "}
+          <ImportantLink href="https://www.bestbytes.com">
+            bestbytes
+          </ImportantLink>{" "}
+          team since 2011. It provides a wide range of utilities, libraries and
+          daemons, that help us to tackle challenging projects.
         </p>
         <h2>foomo can help, if you are</h2>
         <ul>
           <li>
-            using <a href="https://www.golang.org">Go</a> to write services
+            using{" "}
+            <ImportantLink href="https://www.golang.org">Go</ImportantLink> to
+            write services
           </li>
           <li>
             building frontends with{" "}
-            <a href="https://www.typescriptlang.org/">TypeScript</a> and{" "}
-            <a href="https://nextjs.org/">Next.js</a>
+            <ImportantLink href="https://www.typescriptlang.org/">
+              TypeScript
+            </ImportantLink>{" "}
+            and{" "}
+            <ImportantLink href="https://nextjs.org/">Next.js</ImportantLink>
           </li>
           <li>
-            running your software on <a href="https://kubernetes.io/">k8s</a>
+            running your software on{" "}
+            <ImportantLink href="https://kubernetes.io/">k8s</ImportantLink>
           </li>
           <li>
-            looking for a solution to deeply integrate your frontends with a
-            headless cms
+            looking for a solution to deeply integrate your frontends with a{" "}
+            <ImportantLink href="https://jamstack.org">
+              headless cms
+            </ImportantLink>
           </li>
         </ul>
         <sub>If more than two points apply, it will actually help a LOT</sub>

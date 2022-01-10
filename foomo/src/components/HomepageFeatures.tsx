@@ -24,18 +24,18 @@ const LinkButton = (props: { children: string; to: string }) => (
 
 const FeatureList: FeatureItem[] = [
   {
-    title: "Architecture",
-    // image: '/img/undraw_docusaurus_mountain.svg',
+    title: "General guides",
+    // image: '/img/undraw_docusaurus_tree.svg',
     description: (
       <>
-        Show me the big picture - how does foomo integrate into the k8s and Next.js eco system
+        no matter if frontend or backend - there is somtehing for everyone in here
       </>
     ),
-    callToAction: "explore the diagrams",
-    to: "/architecture",
+    callToAction: "get started",
+    to: "/docs/general/intro",
   },
   {
-    title: "Frontend",
+    title: "Frontend guides",
     // image: '/img/undraw_docusaurus_tree.svg',
     description: (
       <>
@@ -46,11 +46,36 @@ const FeatureList: FeatureItem[] = [
     to: "/docs/frontend/intro",
   },
   {
-    title: "Backend",
+    title: "Backend guides",
     // image: '/img/undraw_docusaurus_react.svg',
     description: <>Write fast and reliable services in Go and run them in the cloud</>,
     callToAction: "build a server",
     to: "/docs/backend/intro",
+  },
+  {
+    title: "Projects",
+    // image: '/img/undraw_docusaurus_react.svg',
+    description: <>Foomo projects - libraries, utilities, friendly daemons and more</>,
+    callToAction: "explore",
+    to: "/docs/projects/intro",
+  },
+  {
+    title: "CMS",
+    // image: '/img/undraw_docusaurus_react.svg',
+    description: <>foomo has extensive support for headless CMS Systems</>,
+    callToAction: "learn the patterns",
+    to: "/docs/projects/cms/intro",
+  },
+  {
+    title: "Architecture",
+    // image: '/img/undraw_docusaurus_mountain.svg',
+    description: (
+      <>
+        Show me the big picture - how does foomo integrate into the k8s and Next.js eco system
+      </>
+    ),
+    callToAction: "explore the diagrams",
+    to: "/docs/projects/architecture",
   },
   {
     title: "Awesome Software",

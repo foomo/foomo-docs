@@ -6,7 +6,7 @@
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Foomo Project Docs',
+  title: 'foomo project docs',
   tagline: 'Stuff we wrote, because nobody else wanted to',
   url: "https://www.foomo.org/",
   baseUrl: '/',
@@ -85,6 +85,12 @@ const config = {
             docId: 'devops/intro',
             position: 'left',
             label: 'DevOps',
+          },
+          {
+            type: 'doc',
+            docId: 'projects/intro',
+            position: 'left',
+            label: 'Projects',
           },
           {to: '/blog', label: 'Blog', position: 'right'},
           // {
