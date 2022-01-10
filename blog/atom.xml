@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.foomo.org/blog</id>
-    <title>Foomo Project Docs Blog</title>
+    <title>foomo project docs Blog</title>
     <updated>2021-11-12T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.foomo.org/blog"/>
-    <subtitle>Foomo Project Docs Blog</subtitle>
+    <subtitle>foomo project docs Blog</subtitle>
     <icon>https://www.foomo.org/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[Relaunching foomo.org]]></title>
