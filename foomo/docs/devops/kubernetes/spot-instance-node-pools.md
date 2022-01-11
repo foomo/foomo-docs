@@ -9,6 +9,13 @@ Setting up spot instance node pools is a great way to save money on stateless ap
 
 ## Setting Up Pod Toleration
 
+### Pod Toleration
+
+### DaemonSet Toleration
+
+Don't forget to set the daemonset tolerations
+
+
 ## Setting Up Pod Disruption Budgets
 
 Setting up a pod disruption budget is important due to erratic node shutdown possibility.
@@ -33,4 +40,3 @@ For more details check out [here](https://kubernetes.io/docs/tasks/run-applicati
 ## Setting Up Termination Handling
 
 ## Setting Up K8s Cron Shutdown Cleanup
-

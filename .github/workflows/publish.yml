@@ -1,34 +1,12 @@
 # https://docusaurus.io/docs/deployment#deploying-to-github-pages
-name: documentation
+name: publish
 
 on:
-  pull_request:
-    branches: [main]
   push:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
-  checks:
-    if: github.event_name != 'push'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '14.x'
-      - name: Test Build
-        working-directory: foomo
-        run: |
-          if [ -e yarn.lock ]; then
-            yarn install --frozen-lockfile
-          elif [ -e package-lock.json ]; then
-            npm ci
-          else
-            npm i
-          fi
-          npm run build
-  gh-release:
-    if: github.event_name != 'pull_request'
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
