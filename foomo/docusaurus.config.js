@@ -88,6 +88,12 @@ const config = {
           },
           {
             type: 'doc',
+            docId: 'project-management/intro',
+            position: 'left',
+            label: 'PM',
+          },
+          {
+            type: 'doc',
             docId: 'projects/intro',
             position: 'left',
             label: 'Projects',
