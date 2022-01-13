@@ -2,7 +2,7 @@
 
 ## Markdown
 
-Learn markdown(his is a markdown document 🤓)
+Learn markdown(this is a markdown document 🤓)
 
 - original markdown docs by John Gruber https://daringfireball.net/projects/markdown/
 - a cheatsheet https://www.markdownguide.org/cheat-sheet/
