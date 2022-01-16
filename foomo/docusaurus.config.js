@@ -26,11 +26,11 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           sidebarCollapsed: false,
-          editUrl: 'https://github.com/foomo/foomo-docs/tree/main/foomo/docs',
+          editUrl: 'https://github.com/foomo/foomo-docs/tree/main/foomo',
         },
         blog: {
           showReadingTime: false,
-          editUrl: 'https://github.com/foomo/foomo-docs/tree/main/foomo/blog',
+          editUrl: 'https://github.com/foomo/foomo-docs/tree/main/foomo',
         },
         pages: {
 
@@ -104,7 +104,7 @@ const config = {
         ],
       },
       footer: {
-        style: 'light',
+        
         links: [
           {
             title: 'legal',
