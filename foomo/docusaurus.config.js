@@ -26,14 +26,11 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           sidebarCollapsed: false,
-          // Please change this to your repo.
-          // editUrl: 'https://github.com/facebook/docusaurus/edit/main/website/',
+          editUrl: 'https://github.com/foomo/foomo-docs/tree/main/foomo/docs',
         },
         blog: {
           showReadingTime: false,
-          // Please change this to your repo.
-          // editUrl:
-          //   'https://github.com/facebook/docusaurus/edit/main/website/blog/',
+          editUrl: 'https://github.com/foomo/foomo-docs/tree/main/foomo/blog',
         },
         pages: {
 
@@ -152,6 +149,9 @@ const config = {
         copyright: `© ${new Date().getFullYear()} bestbytes`,
       
       },
+      // algolia: {
+      //   contextualSearch: true,
+      // }
       // prism:  {
       //   theme: lightCodeTheme,
       //   darkTheme: darkCodeTheme,
