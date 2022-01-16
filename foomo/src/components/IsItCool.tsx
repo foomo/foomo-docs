@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
+const yes = "yes";
+const SSR = typeof localStorage === "undefined";
 
-if(typeof localStorage == "undefined") {
-  var localStorage = {setItem:(name, value) => {}, getItem: (name) => {return null}};
+const getISCool = (id) => {
+  if(typeof localStorage === "undefined") {
+    return false;
+  }
+  return localStorage.getItem(id);
 }
 
 export const IsItCool = (props: {
@@ -10,18 +15,17 @@ export const IsItCool = (props: {
   topic: string;
   id: string;
 }) => {
-  let defaultIsCool = false;
-  if (localStorage.getItem(props.id) == "yes") {
-    defaultIsCool = true;
-  }
-  const [isCool, setIsCool] = useState(defaultIsCool);
+  const [isCool, setIsCool] = useState(getISCool(props.id));
+  useEffect(() => {
+    console.log("well it is cool",props.id, {isCool, SSR})
+  }, [isCool, SSR]);
   if (!isCool) {
     return (
       <div>
         <button
           className="button button--lg button--secondary"
           onClick={(_e) => {
-            localStorage.setItem(props.id, "yes");
+            localStorage.setItem(props.id, yes);
             setIsCool(true);
           }}
         >
