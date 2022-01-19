@@ -5,7 +5,7 @@
   <Description>Search foomo project docs</Description>
   <InputEncoding>UTF-8</InputEncoding>
   <Image width="16" height="16" type="image/x-icon">https://www.foomo.org/img/favicon.ico</Image>
-  <Url type="text/html" method="get" template="https://www.foomo.org//search?q={searchTerms}"/>
-  <Url type="application/opensearchdescription+xml" rel="self" template="https://www.foomo.org//opensearch.xml" />
-  <moz:SearchForm>https://www.foomo.org//</moz:SearchForm>
+  <Url type="text/html" method="get" template="https://www.foomo.org/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://www.foomo.org/opensearch.xml" />
+  <moz:SearchForm>https://www.foomo.org/</moz:SearchForm>
 </OpenSearchDescription>
