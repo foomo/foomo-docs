@@ -41,7 +41,7 @@ const config = {
       }),
     ],
   ],
-  themes: ['@docusaurus/theme-live-codeblock'],
+  themes: ['@docusaurus/theme-live-codeblock'],//, '@docusaurus/theme-search-algolia'],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -49,6 +49,12 @@ const config = {
         defaultMode: 'light',
         disableSwitch: true,
         
+      },
+      algolia: {
+        appId: '4254BPUI1C',
+        // it is ok, for this one to be public ;)
+        apiKey: '0826397f9f96d70e06e0dba60dd1d858',
+        indexName: 'foomo-docs',
       },
       navbar: {
         title: 'foomo',

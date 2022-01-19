@@ -2163,7 +2163,7 @@
     react-live "2.2.3"
     tslib "^2.3.1"
 
-"@docusaurus/theme-search-algolia@2.0.0-beta.14":
+"@docusaurus/theme-search-algolia@2.0.0-beta.14", "@docusaurus/theme-search-algolia@^2.0.0-beta.14":
   version "2.0.0-beta.14"
   resolved "https://registry.yarnpkg.com/@docusaurus/theme-search-algolia/-/theme-search-algolia-2.0.0-beta.14.tgz#0238622324251c42098b2ccada4e19c3e92cd772"
   integrity sha512-kTQl8vKXn8FAVVkCeN4XvU8PGWZTHToc+35F9GL06b4rv33zL9HaFIRX3nPM1NHC7I8qh+6gGeV0DRKGjO+j2g==
