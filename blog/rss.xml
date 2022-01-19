@@ -4,9 +4,15 @@
         <title>foomo project docs Blog</title>
         <link>https://www.foomo.org/blog</link>
         <description>foomo project docs Blog</description>
-        <lastBuildDate>Fri, 12 Nov 2021 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 19 Jan 2022 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[debugging Go map races in k8s]]></title>
+            <link>https://www.foomo.org/blog/debugging-go-map-races-in-k8s</link>
+            <guid>debugging-go-map-races-in-k8s</guid>
+            <pubDate>Wed, 19 Jan 2022 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Relaunching foomo.org]]></title>
             <link>https://www.foomo.org/blog/welcome-back-2021</link>
