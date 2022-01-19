@@ -8,7 +8,7 @@
 const config = {
   title: 'foomo project docs',
   tagline: 'Stuff we wrote, because nobody else wanted to',
-  url: "https://www.foomo.org/",
+  url: "https://www.foomo.org",
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
