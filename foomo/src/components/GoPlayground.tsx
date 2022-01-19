@@ -21,8 +21,6 @@ import { IsItCool } from "./IsItCool";
 import Highlight, { defaultProps } from "prism-react-renderer";
 import Link from "@docusaurus/Link";
 
-//src={"https://play.golang.org/p/" + props.id}
-
 export const GoPlayground = (props: { id: string; proportion: number }) => {
   const [interactive, setInteractive] = useState(false);
   const [source, setSource] = useState("");
@@ -32,16 +30,12 @@ export const GoPlayground = (props: { id: string; proportion: number }) => {
       fetch("http://localhost:8080/?id=" + props.id, {
         mode: "cors",
       })
-        .then((res) =>
-          res
-            .json()
-            .then((data) => setSource(data.code))
-            .catch((e) => setSource("parse json"))
-        )
+        .then((res) => res.text().then((newSource) => setSource(newSource)))
         .catch((e) => setSource("can not load source yet"));
     }
   }, [source]);
   const href = "https://goplay.tools/snippet/" + props.id;
+
   return (
     <>
       <div style={{ paddingBottom: "1rem", width: "100%" }}>

@@ -39,13 +39,15 @@ func serve(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "no id get param given", http.StatusBadRequest)
 		return
 	}
-	resp, err := http.Get("https://goplay.tools/api/snippet/" + id)
+
+	//resp, err := http.Get("https://goplay.tools/api/snippet/" + id)
+	resp, err := http.Get("https://go.dev/_/share?id=" + id)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 	w.Header().Set("Access-Control-Allow-Origin", "*")
-	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Content-Type", "text/plain")
 	io.Copy(w, resp.Body)
 	resp.Body.Close()
 }
