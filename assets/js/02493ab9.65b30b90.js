@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkfoomo=self.webpackChunkfoomo||[]).push([[4761],{7:function(e){e.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/search-engine","name":"search-engine","count":1,"permalink":"/blog/tags/search-engine"}')}}]);
