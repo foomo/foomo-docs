@@ -12,7 +12,7 @@ JS is nowadays extremely fast and yet we have many performance issues. Here you 
 
 Let's say you have a large list of objects and you would like to filter them and transform them in some form. Usually we do this:
 
-```JavaScript
+```js
 const largeArray = [ .... ]
 largeArray.map(obj => transformObj(obj)).filter(omitBadObject)
 ```
@@ -20,7 +20,7 @@ largeArray.map(obj => transformObj(obj)).filter(omitBadObject)
 In the above case we first loop through whole set, transform it and then filter things out. Not only does this goes through all the items twice, but it also first time goes through all the items and then filters them.
 One optimization would be to first filter them and then transform them, but ideally we should just use a normal for loop or forEach where you go through items only once.
 
-```JavaScript
+```js
 const finalArray = []
 largeArray.forEach(obj => {
   if (omitBadObject(obj)) {
