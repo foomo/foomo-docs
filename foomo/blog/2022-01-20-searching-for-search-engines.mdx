@@ -1,0 +1,58 @@
+---
+slug: searching-for-search-engines
+authors: [ jan ]
+tags: [ search, search-engine, backend, go ]
+---
+# The never ending search a search engine 2022-01 edition
+
+While building this website and integrating https://docsearch.algolia.com and evaluating another solution by a large company in parallel I could not help to search github and the web for the current state of search engines and search related services.
+
+Since I had done the same thing about a year ago, I was surprised to see how quickly things are moving atm.
+
+## Algolia
+
+I was blown away by the quality of https://www.algolia.com and I wish it was open source, but I guess, we all have to make a living ;)
+
+To see how awesome a web (search) interface can be check out https://www.lacoste.com/us/#query=red%20jackets%20for%20men 
+
+Apart from that the UI/UX of their backend tools is fantastic.
+
+## Elastic
+
+When it comes to https://www.elastic.com I am a bit nervous about the future of the licensing, despite the fact, that I understand their motivation. At the same time the https://opensearch.org does not seem to be an ampty threat.
+
+
+## typesense.org
+
+I do not know, who was hiding under a rock, but I had not seen https://typesense.org before and they certainly have a bold claim: ___"The Open Source Algolia Alternative" / "The Easier To Use ElasticSearch Alternative"___ 
+
+When looking at https://github.com/typesense/typesense/graphs/contributors it seems, that Kishore Nallan has been working on this for a while. Unfourtunately I do not really see a lot of external contributions, C++ does not seem to attract a lot of contribution.
+
+## MeiliSearch
+
+This Rust project https://www.meilisearch.com/ seems to be picking up speed and is definetly on the test short list. It is a fresh codebase with siginficant open source contributions and certainly will attract new developers with Rust and a modern architecture.
+
+## Go eco system
+
+Obviously we are very interested in Go powered software and there are a few notable projects. ATM I do not see anything elastic or algolia like, that would be really mature. 
+
+
+### bleve / bluge
+
+[Marty Schoch](https://github.com/mschoch) seems to be the man when it comes down to text indexing libraries in written in Go and bluge seems to be THE library, that is solid and modern, when implementing text search in your Go application.
+
+https://github.com/blevesearch/bleve
+https://github.com/blugelabs/bluge // next iteration of bleve
+
+#### projects using bluge
+
+All bleeding edge afaik atm - but definitely good places to look at bluge usage
+
+https://github.com/prabhatsharma/zinc 
+https://github.com/mosuka/phalanx
+
+### Look ma I made a vector database
+
+Gotta take a look at this one - will report later
+
+https://github.com/semi-technologies/weaviate
