@@ -1,22 +1,24 @@
 ---
-slug: exploring-partytown
+slug: impact-of-3rd-party-scripts-on-performance
 authors: [ marko ]
-tags: [ nodejs, service-worker, gtm ]
+tags: [ frontend, performance ]
 ---
-# Issue with performance
+# Impact of 3rd party scripts on performance
+
+## Issue with performance
 
 When building an ecommerce site or an application where performance is a great deal for the users, you need to keep your application fast and responsive. Frontend developers have already many use-cases when the UI becomes laggy and this increases when 3rd party scripts are being included, such as Google Tag Manager or various Live chats (e.g. Intercom).
 
 This does not only influences the users when using the site but also Lighthouse score gets lower which also influences page rankings. So the most naive and easy way for this is to defer loading of such scripts but when you need to get all the data from the start of the application, such tactic is not an option. So what else can we do?
 
-# Exploring Partytown
+## Partytown to the rescue
 
 Developers at BuilderIO created an library [Partytown](https://github.com/BuilderIO/partytown) that would allow relocating resources from 3rd party scripts off the main thread.
 We won't dive into specifics how it works, because they explain it nicely on their GitHub page.
 
 In our stack we use [Next.js](https://nextjs.org/) React framework and we will go through the basic steps that will allow us to include Partytown for Google Tag Manager.
 
-## Setup
+### Setup
 
 Partytown script needs to be located inside our application and live on the same domain. Since we're using monorepo structure, we need to copy this script across all our frontend application. For that we used CopyPlugin webpack plugin in our Next.js config file:
 
@@ -50,7 +52,7 @@ Inside `_document.tsx` we add this:
 </Head>
 ```
 
-# Results
+## Results
 
 So now, does it work? We used one of our large Ecommerce sites to test the landing Lighthouse score. 
 
@@ -70,5 +72,5 @@ Side note: Both screenshots were compressed using [Squoosh App](https://squoosh.
 
 # Next steps
 
-After successful testing of Partytown we are more than interested in trying it out on our other scripts. One important topic will be to test Partytown with other service-worker related libraries and how to use them together.
+After successful testing of Partytown for Google Tag Manager script, we are more than interested in trying it out on our other scripts. One important topic will be to test Partytown with other service-worker related libraries and how to use them together.
 
