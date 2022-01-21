@@ -51,10 +51,10 @@ const config = {
         
       },
       algolia: {
-        appId: '4254BPUI1C',
+        appId: 'SUATUVZDDM',
         // it is ok, for this one to be public ;)
-        apiKey: '0826397f9f96d70e06e0dba60dd1d858',
-        indexName: 'foomo-docs',
+        apiKey: 'bf192386dc479eb899739a77eefe0bf6',
+        indexName: 'foomo',
       },
       navbar: {
         title: 'foomo',
