@@ -41,7 +41,7 @@ Let's describe the deployment, to check out what's happening.
 ```
 
 So we see that the prometheus is in a running state waiting for the readiness probe to trigger, probably working on recovering from Write Ahead Log (WAL).
-This could be an issue where prometheus is recovering from an error, or a restart and does not have enough memory to write everything in te WAL.
+This could be an issue where prometheus is recovering from an error, or a restart and does not have enough memory to write everything in the WAL.
 We could be running into an issue where we set the request/limits memory lower than the prometheus requires, and the kube scheduler keeps killing prometheus for wanting more memory.
 
 For this case, we could give it more memory to work to see if it recovers. We should also analyze why the prometheus WAL is getting clogged up.
@@ -53,13 +53,13 @@ In essence, we want to check what has changed so that we suddenly have a high me
 ![Cardinality](cardinality.webp)
 
 A lot of prometheus issues revolve around cardinality.
-Memory spikes that break your deployment. Cardinality.
+Memory spikes that break your deployment? Cardinality.
 Prometheus dragging its feet like it's Monday after the log4j (the second one ofc) zero day security breach? Cardinality.
 Not getting that raise since you worked hard the past 16 years without wavering? You bet your ass it's cardinality.
 So, as you can see much of life's problems can be accredited to cardinality.
 
-In short cardinality of your metrics is the combination of all label values per a metric.
-For example, if our metric ```http_request_total``` had a label response code, and let's say we support 8 status codes our cardinality starts off at 8.
+In short cardinality of your metrics is the combination of all label values per metric.
+For example, if our metric ```http_request_total``` had a label response code, and let's say we support 8 status codes, our cardinality starts off at 8.
 For good measure we want to record the HTTP verb for the request. We support ``GET POST PUT HEAD`` which would put the cardinality to 4\*8=**32**.
 Now, if someone adds a URL to the metric label (**!!VERY BAD IDEA!!**, but bare with me now) and we have 2 active pages, we'd have a cardinality of 2\*4\*8=**64**.
 But, imagine someone starts scraping your website for potential vulnerabilities. Imagine all the URLs that will appear, most likely only once.
@@ -78,9 +78,9 @@ The point to this story is, be very mindful of how you use labels and cardinalit
 
 ## The Solution
 
-So, since this never happened to me (never-ever) I found the following solution to be handy.
+Since this has never happened to me (never-ever) I found the following solution to be handy.
 Since we can't get prometheus up and running to utilize PromQL to detect the potential issues, we have to find another way to detect high cardinality.
-So, we might want to get our hands dirty with some ```kubectl exec -it -n monitoring pods/prometheus-prometheus-kube-prometheus-prometheus-0 -- sh```, and run the prometheus ``tsdb`` analysis too.
+Therefore, we might want to get our hands dirty with some ```kubectl exec -it -n monitoring pods/prometheus-prometheus-kube-prometheus-prometheus-0 -- sh```, and run the prometheus ``tsdb`` analysis too.
 ```bash
 /prometheus $ promtool tsdb analyze .
 ```
@@ -102,7 +102,7 @@ Which produced the result.
 > ...
 ```
 
-So, we see the potential issue here, where the ``haproxy_server_http_responses_total`` metric is having a super-high cardinality which is growing.
+We see the potential issue here, where the ``haproxy_server_http_responses_total`` metric is having a super-high cardinality which is growing.
 We need to deal with it, so that our prometheus instance can breathe again. In this particular case, the solution was updating the haproxy.
 
 ... or burn it, up to you.
