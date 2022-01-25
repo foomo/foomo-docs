@@ -1,0 +1,120 @@
+---
+slug: prometheus-cardinality-issues
+authors: [ smartinov ]
+tags: [ prometheus, cardinality, devops, ops, k8s, oom, memory ]
+---
+
+# Prometheus Is Out Of Memory. Again.
+
+## The Annoyance
+
+So, we've all been there. You go to your trusty grafana, search for some sweet metrics that you implemented and WHAM!
+Prometheus returns us a 503, a trusty way of saying I'm not ready, and I'm probably going to die soon.
+And since we're running in kubernetes I'm going to die soon, again and again.
+And you're getting reports from your colleagues that prometheus is not responding.
+And you can't ignore them anymore.
+
+![Bummer.](bummer.webp)
+
+
+## The Problem
+
+All right, lets check what's happening to the little guy.
+
+```bash
+kubectl get pods -n monitoring
+
+prometheus-prometheus-kube-prometheus-prometheus-0       1/2     Running   4          5m
+```
+
+It seems like it's stuck in the running state, where the container is not yet ready.
+Let's describe the deployment, to check out what's happening.
+
+```yaml
+     State:          Running                                                                                                                                                                                                                        │
+       Started:      Wed, 12 Jan 2022 15:12:49 +0100                                                                                                                                                                                                │
+     Last State:     Terminated                                                                                                                                                                                                                     │
+       Reason:       OOMKilled                                                                                                                                                                                                                      │
+       Exit Code:    137                                                                                                                                                                                                                            │
+       Started:      Tue, 11 Jan 2022 17:14:41 +0100                                                                                                                                                                                                │
+       Finished:     Wed, 12 Jan 2022 15:12:47 +0100                                                                                                                                                                                                │
+```
+
+So we see that the prometheus is in a running state waiting for the readiness probe to trigger, probably working on recovering from Write Ahead Log (WAL).
+This could be an issue where prometheus is recovering from an error, or a restart and does not have enough memory to write everything in te WAL.
+We could be running into an issue where we set the request/limits memory lower than the prometheus requires, and the kube scheduler keeps killing prometheus for wanting more memory.
+
+For this case, we could give it more memory to work to see if it recovers. We should also analyze why the prometheus WAL is getting clogged up.
+
+In essence, we want to check what has changed so that we suddenly have a high memory spike in our sweet, sweet environment.
+
+## The Source
+
+![Cardinality](cardinality.webp)
+
+A lot of prometheus issues revolve around cardinality.
+Memory spikes that break your deployment. Cardinality.
+Prometheus dragging its feet like it's Monday after the log4j (the second one ofc) zero day security breach? Cardinality.
+Not getting that raise since you worked hard the past 16 years without wavering? You bet your ass it's cardinality.
+So, as you can see much of life's problems can be accredited to cardinality.
+
+In short cardinality of your metrics is the combination of all label values per a metric.
+For example, if our metric ```http_request_total``` had a label response code, and let's say we support 8 status codes our cardinality starts off at 8.
+For good measure we want to record the HTTP verb for the request. We support ``GET POST PUT HEAD`` which would put the cardinality to 4\*8=**32**.
+Now, if someone adds a URL to the metric label (**!!VERY BAD IDEA!!**, but bare with me now) and we have 2 active pages, we'd have a cardinality of 2\*4\*8=**64**.
+But, imagine someone starts scraping your website for potential vulnerabilities. Imagine all the URLs that will appear, most likely only once.
+
+```text
+mywebsite.com/admin.php
+mywebsite.com/wp/admin.php
+mywebsite.com/?utm_source=GUID
+...
+```
+
+This would blow up our cardinality to kingdom come. Like you will be out of memory faster than "[a new super awesome Javascript gamechanger framework](https://www.reddit.com/r/ProgrammerHumor/comments/a483yz/those_javascript_devs/)" is born.
+Or to quote user [naveen17797](https://www.reddit.com/user/naveen17797/) _Scientists predict the number of js frameworks may exceed human population by 2020,at that point of time random string generators will be used to name those frameworks._
+
+The point to this story is, be very mindful of how you use labels and cardinality in prometheus, since that will indeed have great impact on your prometheus performance.
+
+## The Solution
+
+So, since this never happened to me (never-ever) I found the following solution to be handy.
+Since we can't get prometheus up and running to utilize PromQL to detect the potential issues, we have to find another way to detect high cardinality.
+So, we might want to get our hands dirty with some ```kubectl exec -it -n monitoring pods/prometheus-prometheus-kube-prometheus-prometheus-0 -- sh```, and run the prometheus ``tsdb`` analysis too.
+```bash
+/prometheus $ promtool tsdb analyze .
+```
+
+Which produced the result.
+
+```text
+> Block ID: 01FT8E8YY4THHZ2S7C3G04GJMG
+> Duration: 1h59m59.997s
+> Series: 564171
+> Label names: 285
+> Postings (unique label pairs): 21139
+> Postings entries (total label pairs): 6423664
+>
+> ...
+>
+> Highest cardinality metric names:
+> 11340 haproxy_server_http_responses_total
+> ...
+```
+
+So, we see the potential issue here, where the ``haproxy_server_http_responses_total`` metric is having a super-high cardinality which is growing.
+We need to deal with it, so that our prometheus instance can breathe again. In this particular case, the solution was updating the haproxy.
+
+... or burn it, up to you.
+
+![Flame Thrower](flame-thrower.webp)
+
+## The Further Reading
+
+1. [WAL Definition](https://github.com/prometheus/prometheus/blob/main/tsdb/docs/format/wal.md)
+2. [WAL & Checkpoints](https://ganeshvernekar.com/blog/prometheus-tsdb-wal-and-checkpoint/)
+3. [Using TSDB](https://www.robustperception.io/using-tsdb-analyze-to-investigate-churn-and-cardinality)
+4. [Biggest Metrics](https://www.robustperception.io/which-are-my-biggest-metrics)
+5. [Cardinality](https://www.robustperception.io/cardinality-is-key)
+
+
