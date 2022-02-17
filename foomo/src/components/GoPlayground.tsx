@@ -27,7 +27,7 @@ export const GoPlayground = (props: { id: string; proportion: number }) => {
   const handle = useFullScreenHandle();
   useEffect(() => {
     if (source == "" && props.id !== "") {
-      fetch("http://localhost:8080/?id=" + props.id, {
+      fetch("https://docs.bestbytes.com/services/playground?id=" + props.id, {
         mode: "cors",
       })
         .then((res) => res.text().then((newSource) => setSource(newSource)))
