@@ -5,12 +5,12 @@ jan:
   image_url: https://github.com/janhalfar.png
 philipp:
   name: Philipp Mieden
-  title: MSc 
+  title: MSc
   url: https://github.com/dreadl0ck
   image_url: https://github.com/dreadl0ck.png
 marko:
   name: Marko Trebižan
-  title: Frontend Dev 
+  title: Frontend Dev
   url: https://github.com/themre
   image_url: https://github.com/themre.png
 smartinov:
@@ -18,3 +18,8 @@ smartinov:
   title: Memelord
   url: https://github.com/smartinov
   image_url: https://github.com/smartinov.png
+nicola:
+  name: Nicola Turcato
+  title: Memelord brother
+  url: https://github.com/nicolaturcato
+  image_url: https://github.com/nicolaturcato.png
