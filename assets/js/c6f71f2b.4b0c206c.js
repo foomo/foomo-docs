@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkfoomo=self.webpackChunkfoomo||[]).push([[4491],{8590:function(o){o.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/frontend","name":"frontend","count":1,"permalink":"/blog/tags/frontend"}')}}]);

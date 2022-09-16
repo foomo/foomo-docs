@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkfoomo=self.webpackChunkfoomo||[]).push([[1213],{4203:function(o){o.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/memory","name":"memory","count":1,"permalink":"/blog/tags/memory"}')}}]);

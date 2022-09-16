@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkfoomo=self.webpackChunkfoomo||[]).push([[6945],{6945:function(o,e,f){f.r(e)}}]);

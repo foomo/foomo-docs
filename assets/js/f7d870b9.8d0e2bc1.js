@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkfoomo=self.webpackChunkfoomo||[]).push([[4859],{9592:o=>{o.exports=JSON.parse('{"label":"oom","permalink":"/blog/tags/oom","allTagsPath":"/blog/tags","count":1}')}}]);
