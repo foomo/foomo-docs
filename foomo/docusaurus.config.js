@@ -41,7 +41,10 @@ const config = {
       }),
     ],
   ],
-  themes: ['@docusaurus/theme-live-codeblock'],//, '@docusaurus/theme-search-algolia'],
+  themes: [
+    '@docusaurus/theme-live-codeblock',
+    '@saucelabs/theme-github-codeblock'
+  ],//, '@docusaurus/theme-search-algolia'],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
