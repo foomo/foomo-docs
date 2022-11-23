@@ -7,7 +7,7 @@ JavaScript spread syntax `(...)` is a surprisingly powerful construct. It has tw
 Spreading creates new instances of objects or array, but we need to be very careful because it only does a shallow copy.
 If you have a deeply nested object or array, nested entities will still hold a reference to an original value and hence dangerous bugs can occur.
 
-Copying is needed when doing state changes (either local or state management e.g. Redux). If deep cloning is required [`structuredClone`](https://developer.mozilla.org/en-US/docs/Web/API/structuredClone) can be used. 
+Copying is needed when doing state changes (either local or state management e.g. Redux). If deep cloning is required, [`structuredClone`](https://developer.mozilla.org/en-US/docs/Web/API/structuredClone) can be used. 
 
 ```jsx live
 function () {
