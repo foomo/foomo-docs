@@ -116,6 +116,16 @@ const config = {
         
         links: [
           {
+            title: 'github',
+            items: [
+              {
+                label: 'https://github.com/foomo',
+                to: 'https://github.com/foomo',
+                
+              },
+            ],
+          },
+          {
             title: 'legal',
             items: [
               {
