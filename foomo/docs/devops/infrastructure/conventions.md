@@ -9,9 +9,9 @@ When creating resources the most important thing is to be consistent.
 
 The following resource convention is preferred if no other exist in the project:
 
-```[customer]<-project>-[resource]-[env]-[name]<-region/location><-index>```
+```[customer*]-[project]-[resource*]-[env*]-[name*]-[region/location]-[index]```
 
-Where [] represents a required field while <> is an optional field.
+The fields with a * are required.
 
 Legend:
 
