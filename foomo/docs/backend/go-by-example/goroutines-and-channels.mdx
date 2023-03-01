@@ -1,0 +1,76 @@
+---
+Title: Goroutines and Channels
+position: 9
+---
+
+import { GoPlayground } from '../../../src/components/GoPlayground';
+
+# Go Routines and Channels
+
+## Go Routines
+Go routines are go's mechanism to run code concurrently.
+To create a goroutine we use the keyword ```go``` followed by a function invocation.
+When you fork off a function by adding the ```go``` keyword before it, it will run asynchronous. So it might be the case that your main function returns before the routine is done executing
+
+<GoPlayground 
+    id="3Utx0iDshm8" 
+    proportion={16/10}
+/>
+
+If you run this example you see that sometimes the statements in the go routines are printed out but other times they are not.
+
+Go follows a fork-join concurrency model. Go routines are forked off the main function and the main function will continue to run.
+In go you are responsible for implementing the join point. In the example we saw earlier we did not implement a join point. That means 
+we did not sync our go routines up with the main function and therefore a lot of times you did not see our statements being printed out.
+
+## Channels
+Typically you will use a channel to communicate between go routines. We can have go routines reference the same place in memory
+where a channel resides to be able to communicate with each other. This is a common way to implement a join point. 
+
+A channel follows a First-In-First-Out (FIFO) structure. So the information you first write to the channel will be the first information to be read out from the channel.
+Since the main function is a go routine as well it can also communicate with its child go routines through channels. 
+
+### Unbuffered Channels
+To make an unbuffered go channel call make with chan and specify the type of channel you want.
+
+```go
+func main() {
+    myChannel := make(chan string) // unbuffered channel of type string
+}
+```
+To specify which function is writing and which function is reading from the channel we use arrows: <-
+
+```go
+func main() {
+    myChannel := make(chan string) // unbuffered channel of type string
+
+    go func() {
+        myChannel <- "I am always being printed now" // write to channel
+    }()
+
+    data := <- myChannel // read from the channel and store it in data variable
+    fmt.Println(data)
+}
+```
+Unbuffered channels only allow go routines to communicate synchronously. This is because the go routine that sends the data to the unbuffered channel will 
+go into a waiting state once it has sent the data, until this data is read by the receiving go routine. 
+So until the data is read of the channel this go routine is blocked. 
+
+### Buffered Channels
+You can set a limit on the capacity of a channel by passing the limit to the make function:
+
+```go
+func main() {
+    myChannel := make(chan string, 5)
+}
+```
+
+To demonstrate how an unbuffered channel only allows for synchronous communication consider the following example:
+
+<GoPlayground 
+    id="0Vm7FZuDWqs" 
+    proportion={16/10}
+/>
+
+You see that even though we made both go routines wait when the channel was read, the go routine using the buffered channel printed out all of the statements at once.
+And the go routine using the unbuffered channel had to wait each time until the channel was read out to be able to continue singing the greatest song of all time.
