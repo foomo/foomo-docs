@@ -1,0 +1,38 @@
+---
+title: Panic and Recover
+sidebar_position: 2
+tags: 
+    - Go Basics
+---
+
+import { GoPlayground } from '../../../src/components/GoPlayground'; 
+
+# Panic and Recover
+
+## Panic
+```panic``` is used whenever our application can no longer function. In Go it's mostly left up to the developer to decide when an error is a problem in your application. 
+```panic``` helps you tell your program it encountered a fatal problem which can not be recovered. Panic always prints a stack trace to help locate the problematic line of code.
+
+## Panic and Defer
+```go
+func main() {
+    fmt.Println("Start")
+    defer fmt.Println("Deferred")
+    panic("Panic")
+    fmt.Println("End")
+}
+```
+The above code will print: 'Start', 'Deferred' and then 'Panic'. This is because defer statements will always be executed even in case of a panic.
+So the order of execution is: Execute called function, then execute defer statements, and in case of a panic program execution will stop.
+So even if your application will panic defer statements are handled and therefore resources will be closed accordingly.
+
+## Panic and Recover
+Try out the following example: 
+<GoPlayground 
+    id="BN8Boz9LRVX" 
+    proportion={16/10}
+/>
+The function that panics will stop because it can no longer function so we don't see 'Is this printed?' printed. 
+The recover function makes it possible to obtain the error in case a panic occurred, and leaves the decision how to proceed to the programmer.
+In this example, we decided to just log the error and continue to run. The function that panicked will stop execution at the panic, but the code that called it will continue to execute,
+which is why we see 'End' being printed.

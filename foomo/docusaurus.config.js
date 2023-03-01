@@ -171,10 +171,9 @@ const config = {
       // algolia: {
       //   contextualSearch: true,
       // }
-      // prism:  {
-      //   theme: lightCodeTheme,
-      //   darkTheme: darkCodeTheme,
-      // },
+      prism:  {
+        additionalLanguages: ['go'],
+      },
     }),
 };
 

@@ -1,0 +1,71 @@
+---
+title: Defer
+sidebar_position: 1
+tags:
+    - Go Basics
+---
+# Defer
+
+In a normal Go application, control flows from the top to the bottom of any function that we call (this is if you don't use branching or looping).
+Through introducing ```defer``` we can execute the statement passed to it at the end of the function just before it returns. To demonstrate:
+```go
+package main
+
+import (
+    "fmt"
+)
+
+func main() {
+    fmt.Println("first")
+    fmt.Println("second")
+    fmt.Println("third")
+}
+```
+If you copy the above code and execute it it will print 'first', 'second' and then 'third'. Now if we introduce ```defer``` to this function we see the order in which our statements are printed change.
+
+```go
+func main() {
+    fmt.Println("first")
+    defer fmt.Println("second")
+    fmt.Println("third")
+}
+```
+Executing this function will print: 'first', 'third' and then 'second'. This is because the statement that follows after the ```defer``` keyword is executed at the end of function we are calling, just before it returns.
+When it goes through this function if will print 'first', then it will recognise it has a defer function to call, it will print 'third' and then when it exits the function, it will check if there are any defer functions to call and if so it will call them.
+Which in our case is the print function that prints 'second'.
+What would happen if we add the defer keyword before each of our prints?
+```go
+func main() {
+    defer fmt.Println("first")
+    defer fmt.Println("second")
+    defer fmt.Println("third")
+}
+```
+This results into 'third' being printed first, followed by 'second' and then 'first'. This is because the defer keyword executes in last-in-first-out (LIFO) order. 
+This makes sense because defer is usually used to close out resources, and it is logical to close these in the opposite order of which they are opened because one resource might be dependend on another one.
+
+It's good practice to use defer to close a response body right after you have opened it. In this way you make sure all resources that have been opened have been closed and in this way it can prevent some bugs.
+What you will see often is something like this:
+
+```go
+func main() {
+    resp, err := http.Get("http://www.foomo.org")
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer resp.Body.Close()
+}
+```
+You open a resource, check if there is an error and after it use defer to close it before the function returns.
+
+Another thing to keep in mind with defer is that it will execute with the value given to it at the time. To demonstrate:
+```go
+func main() {
+    myVar := "hello"
+    defer fmt.Println(myVar)
+    myVar = "goodbye"
+}
+```
+What do you think this prints? You might think it will print 'goodbye' because that is the last value of the variable before the main function returns.
+Surprisingly the value printed is 'hello', which is likely the result of a compiler optimization.
+

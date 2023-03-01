@@ -1,6 +1,48 @@
+---
+title: Maps
+sidebar_position: 3
+tags: 
+    - Go Basics
+---
+
 import { GoPlayground } from '../../../src/components/GoPlayground';
 
-# what you should now about nil maps
+# Maps
+
+Maps are unordered key value pairs where each key is unique.
+Unordered in that context means that the order can be different every time you iterate over its contents.
+You can add, update, get, or delete keys and values.
+
+Map lookup operations will always return the value for the requested key and a boolean indicated whether the key was found.
+In case the key was not found, the value will the default value for its data type (eg false for booleans, empty string for strings, nil for pointers etc)
+
+```go
+    musicMap := make(map[string]string)
+
+    musicMap["Jimi"] = "Hendrix" // Add key and value pair
+    musicMap["Jimi"] = "Hendrix ❤️" // Update value
+
+    v, found := musicMap["Jimi"] // Get a value for an existing key, will return found==true
+    v, found := musicMap["Jimmy"] // Get value for a non existing key: will return found==false
+
+    delete(musicMap, "Jimi") // Deletes Jimi key value pair
+```
+
+## What you should now about nil maps
+
+Consider the following two maps:
+
+```go
+    var map1 map[string]int
+    map2 := make(map[string]int)
+```
+What is the difference between these two? If you will add keys to one of them the program will panic while you can add keys
+without a problem to the other. Map1 is a *nil map*, because it has not been initialized. Map2 is an empty map but because it is initialized
+with the make statement you can add elements to this map later on in your program. Nil maps could for example be used for structs that have optional data. In that case
+we don't want to allocate them every time, only when the data is present. 
+<br />
+
+While you can not add elements to a nil map, read operations work just fine. Try it out yourself in the following example:
 
 <GoPlayground 
     id="Alpsx5uHXCS" 

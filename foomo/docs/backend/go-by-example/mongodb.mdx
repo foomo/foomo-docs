@@ -1,0 +1,103 @@
+---
+Title: MongoDB
+position: 5
+tags: 
+    - Go Basics
+---
+
+# MongoDB
+
+Make sure to use the official golang mongo driver:
+> go.mongodb.org/mongo-driver/mongo
+
+This documentation is a simplified version of the tutorial on [MongoDB's website](https://www.mongodb.com/blog/post/mongodb-go-driver-tutorial)
+
+## Set client connections 
+```go
+clientOptions := options.Client().ApplyURI(<MongoDB-database-URI>)
+```
+
+## Connect with the database
+```go 
+client, err := mongo.Connect(context.TODO(), clientOptions)
+```
+
+## Check connection
+```go 
+err = client.Ping(context.TODO(), nil)
+```
+
+A collection is a grouping of MongoDB documents. Documents within a collection can have different fields. A collection is the equivalent of a table in a relational database system. A collection exists within a single database
+
+<img src={require('@site/static/img/mongodb.png').default} />
+source: Geeks for Geeks https://www.geeksforgeeks.org/mongodb-database-collection-and-document/
+
+JSON documents in MongoDB are stored in a binary representation called BSON (Binary-encoded JSON). Unlike other databases that store JSON data as simple strings and numbers, the BSON encoding extends the JSON representation to include additional types such as int, long, date, floating point, and decimal128. This makes it much easier for applications to reliably process, sort, and compare data. The Go Driver has two families of types for representing BSON data: The D types and the Raw types.
+The D family of types is used to concisely build BSON objects using native Go types:
+* D: A BSON document. This type should be used in situations where order matters, such as MongoDB commands.
+* M: An unordered map. It is the same as D, except it does not preserve order.
+* A: A BSON array.
+* E: A single element inside a D.
+
+You use filters to get the specific data you ask for.
+
+## CRUD Operations
+### Insert one item
+```go
+insertResult, err := collection.InsertOne(context.TODO(), <item>)
+```
+
+### Insert Many 
+this takes a slice of objects
+```go
+my-slice := []interface{}{item1, item2}
+insertManyResult, err := collection.InsertMany(context.TODO(), my-slice)
+```
+
+### Update a single document 
+Requires a filter document to match documents in the database and an update document to describe the update operation.
+```go 
+filter := bson.D{{"name", “item1”}}
+update := bson.D{
+    {"$inc", bson.D{ // Increases var1 with 1
+        {“var1”, 1},
+    }},
+}
+updateResult, err := collection.UpdateOne(context.TODO(), filter, update)
+```
+
+### Find a single document 
+Requires a filter document and a pointer to a value into which the result can be decoded, returns a single result which can be decoded into a value.
+```go 
+var item_result Item // value into which the result can be decoded
+err = collection.FindOne(context.TODO(), filter).Decode(&result)
+```
+
+### Find multiple documents 
+This method returns a Cursor. A Cursor provides a stream of documents through which you can iterate and decode one at a time. Once a Cursor has been exhausted, you should close the Cursor.
+```go 
+findOptions := options.Find()
+var results []*Item
+cur, err := collection.Find(context.TODO(), bson.D{{}}, findOptions)
+for cur.Next(context.TODO()) {
+    var elem Item
+    err := cur.Decode(&elem)
+    if err != nil {
+        log.Fatal(err)
+    }
+    results = append(results, &elem)
+} 
+cur.Close(context.TODO())
+```
+
+### Delete documents 
+You can choose to use collection.DeleteOne() or collection.DeleteMany(), both take a filter document to match the documents in the collection.
+```go
+deleteResult, err := collection.DeleteMany(context.TODO(), bson.D{{}})
+```
+
+## Close connection
+Best to keep connection open if you have to do multiple things. It does not make sense to open and close a connection if you have to query the database multiple times.
+```go
+err = client.Disconnect(context.TODO())
+```
