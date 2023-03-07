@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkfoomo=self.webpackChunkfoomo||[]).push([[9851],{6920:a=>{a.exports=JSON.parse('{"label":"decimal accuracy","permalink":"/blog/tags/decimal-accuracy","allTagsPath":"/blog/tags","count":1}')}}]);
