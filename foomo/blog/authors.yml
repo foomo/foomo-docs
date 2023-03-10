@@ -26,5 +26,10 @@ nicola:
 patrickb:
   name: Patrick Buchner
   title: MSc
-  url: https://github.com/smartinov
+  url: https://github.com/uebriges
   image_url: https://github.com/uebriges.png
+marusicbostjan:
+  name: Boštjan Marušič
+  title: PhD
+  url: https://github.com/marusicbostjan
+  image_url: https://github.com/marusicbostjan.png
