@@ -1,6 +1,149 @@
 ---
 Title: Files
 position: 14
+tags:
+    - Go Basics
 ---
 
+
+import { GoPlayground } from '../../../src/components/GoPlayground';
+
 # Files
+There are multiple packages we can utilize for reading files in a go program. We'll go over the most commonly used ones in this section.
+These include: ```os```, ```io```, ```ioutil``` and ```bufio```. We'll go over some commonly used methods for each of these packages in this section.
+
+## IOUtil
+### Read Whole File
+To read a whole file you can use the ```ReadFile``` function.
+```go
+// Takes a filepath as argument
+// Returns a byteslice and an error
+byteslice, err := ioutil.ReadFile(filepath)
+```
+
+## OS
+The ```os``` package provides and interface with methods to handle files on your operating system in go. 
+
+### Open Files
+To open a file using the ```os``` package, use the Open method. This method takes a filepath and returns the opened file and an error.
+
+```go
+file, err := os.Open(filepath)
+```
+
+### Reading Files
+To read a file using the ```os``` package, use the ReadFile method. This method takes a filepath and returns the contents of the file in a byteslice and an error.
+
+```go
+byteslice, err := os.ReadFile(filepath)
+```
+ 
+### Writing Files
+
+### Getting File Information
+To get information about a file using the ```os``` package, use the Stat method. This method takes a filepath and information of the selected file and an error. 
+This information includes methods: Name() to get the name of the file, Size() to get the size the file in bytes, Mode() to get the mode of the file, 
+IsDir() to find out if it is a directory, ModTime() showing when the file was last modified, and Sys() describing the underlying data source.
+
+```go
+fileInfo, err := os.Stat(filepath)
+```
+
+## BufIO
+Sometimes opening a whole file is not ideal, this is for example when you have a very large log file. All of it is going to be opened in memory.
+For these cases you can buffer the IO, this can increase the speed of your application by reducing the number of system calls made. 
+Bufio provides ways to read by the file in batches. Commonly used methods in the bufIO package include: ```Scanner```, ```ReadSlice```,```ReadBytes``` and ```ReadLines```.
+
+### Scanner
+Breaks the data up in tokens. Open the file with the ```os``` Open function and pass the reader to the NewScanner function. This will return a pointer to a Scanner.
+
+```go
+myScanner =  bufio.NewScanner(myIOReader)
+```
+
+### ReadSlice
+This function returns a slice of the passed string based on the delimiter you pass it.
+It will return every slice with the delimiter. To call it initialize a new reader with the specified string and pass the ReadSlice method a delimiter.
+
+<GoPlayground 
+    id="0ZFnnUjBk6l" 
+    proportion={16/10}
+/>
+
+### ReadBytes
+ReadBytes builds on the ReadSlice functionality and is called in a similar fashion. The difference is that ReadSlice is bound to a buffersize, if it does
+not reach the delimiter within that size it will fail. ReadBytes is able to call ReadSlice multiple times which means that if you go over the buffersize 
+it won't encounter a problem. To demonstrate:
+
+<GoPlayground 
+    id="Jl9B6I1a8d-" 
+    proportion={16/10}
+/>
+
+## Examples
+
+### Read Lines
+The following code provides a way to read lines from a file. It uses the ```os``` package to open the file and then ```bufio``` to create a scanner 
+that reads the file line by line.
+
+```go
+package main
+
+import (
+	"fmt"
+	"os"
+    "bufio"
+)
+
+func main() {
+
+    file, err := os.Open(filepath)
+        if err != nil {
+            fmt.Println("Error:", err.Error())
+            return
+        }
+        defer os.Close() // Make sure to always close your resources
+
+    scanner := bufio.NewScanner(file)
+    for scanner.Scan() { // returns a boolean, so until the end of the file is reached this loop will run
+        fmt.Println(scanner.Text())
+    }
+}
+```
+### Read Bytes
+
+```go
+package main
+
+import (
+	"fmt"
+	"os"
+    "bufio"
+    "io"
+)
+
+func main() {
+
+    fileHandler, err := os.Open(filename)
+        if err != nil {
+            fmt.Println("Error:", err.Error())
+            return
+        }
+        defer os.Close() // Make sure to always close your resources
+
+
+    myBuffer := make([]byte, size) // Make a buffer with size of size
+    for { 
+        readBytes, err := fileHandler.Read(buf) 
+        if err != nil {
+            if err != io.EOF {
+                fmt.Println("Error:", err.Error())
+                return
+            }
+            break
+        }
+
+        fmt.Println(string(myBuffer[:readBytes]))
+    }
+}
+```

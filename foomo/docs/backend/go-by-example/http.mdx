@@ -1,6 +1,68 @@
 ---
 Title: HTTP Client and Server
 position: 12
+tags:
+    - Go Basics
 ---
 
 # HTTP Client and Server
+
+The HTTP protocol is used to communicate between Client and Server. The ```net/http``` package provides all methods needed to implement a client and 
+a server and the most commonly used request methods.
+
+The most commonly used request methods are:
+- GET:
+    * This method is used to request data from the server or specified source. Used for fetching data.
+- POST:
+    * This method is used to send a request with data in the body to a server. Used for creating data.
+- PATCH:
+    * This method is used to partially update an existing data entry.
+- PUT:
+    * This method is used to entirely update an existing data entry.
+
+## HTTP Client
+The HTTP Client consumes the API, it sends a request to the HTTP Server. The following code shows an example for all the commonly used HTTP requests.
+```go
+
+// GET Requests: Pass the URL to request the data from.
+// Returns a response and an error.
+resp, err := http.Get("https://foomo.org") 
+
+// Post Requests: Pass the URL to post data to, specify the content type of the data, 
+// and pass the body containing the data of the request.
+// Returns a response and an error.
+resp, err := http.Post("https://foomo.org", "application/json", body)
+
+// PATCH Requests, specify it's a PATCH request, pass the URL to request, 
+// and the body containing the data of the request.
+// Returns a response and an error.
+resp, err := http.NewRequest(http.MethodPatch, "https://foomo.org", body) 
+
+// PUT Requests, specify it's a PUT request, pass the URL to request,
+// and the body containing the data of the request.
+// Returns a response and an error.
+resp, err := http.NewRequest(http.MethodPut, "https://foomo.org", body) 
+
+```
+
+## HTTP Server
+the HTTP Server accepts API calls from a Client. Handlers are a fundamental concept in the ```net/http``` package. 
+They are your way of basically telling how a request is supposed to be handled. Handler functions always take a ResponseWriter and a pointer to a Request as argument:
+```go
+func myHandler(w http.ResponseWriter, req *http.Request) {
+    ...
+}
+```
+In the main function of your server you register all the handlers implemented and serve them on a specified port:
+
+```go
+func main () {
+
+    http.HandleFunc("/myPage", myHandler) // specify the path and the handler function
+
+    http.ListenAndServe(":8000", nil) // specify the port and the router, which is the default router in this case.
+}
+```
+
+
+### RESTful 

@@ -1,7 +1,29 @@
 ---
 Title: Context
 position: 10
+tags:
+    - Go Intermediate
 ---
 
+import { GoPlayground } from '../../../src/components/GoPlayground';
+
 # Context 
-https://gobyexample.com/context
+
+The ```context``` package in go provides a way for request-scoped values to be passed between all goroutines that are involved in handling a request.
+Context also provides a way to set certain rules like how long a process can run before you automatically cancel it. A common way ```context``` is used is
+for handling HTTP requests. The context package defines the Context type which has the following methods:
+- ```Done()```
+    * This returns a read-only channel which automatically closes when the context is canceled or when the context times out.
+- ```Deadline()```
+    * This returns both a deadline, which represents the time that the context will be canceled at or closed at, as well as a boolean that tells you 
+    if a deadline is set for this context.
+- ```Err()```
+    * This returns an error explaining why the Done() channel was closed or nil if the Done() channel was not closed.
+- ```Value(key interface{})```
+    * This returns the value stored for the passed key or nil if the key is not present.
+
+
+<GoPlayground 
+    id="A5CtgkZUu0-" 
+    proportion={16/10}
+/>

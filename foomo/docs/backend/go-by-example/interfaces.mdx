@@ -1,6 +1,44 @@
 ---
 Title: Interfaces
 position: 11
+tags: 
+    - Go Basics
 ---
 
+import { GoPlayground } from '../../../src/components/GoPlayground';
+
 # Interfaces
+
+In go you can define a type using a set of methods by using the ```interface``` keyword. 
+
+```go
+type instrumentSounds interface {
+    makeBand() string
+}
+```
+So this is our instrumentSounds interface which calls a function makeBand. 
+
+<GoPlayground 
+    id="p-Ut2K0Fa9f" 
+    proportion={16/10}
+/>
+
+## The Empty Interface
+
+An empty interface can hold values that satisfy any type. It's commonly used in code when the values types are unknown.
+```go
+
+func main() {
+    var myInterface interface{}
+
+    myInterface = 300
+
+    fmt.Println(myInterface)
+
+    myInterface = "Hello world"
+
+    fmt.Println(myInterface)
+}
+```
+Even though the type is changed this program will still work fine because myInterface is an empty interface so it could be of any type.
+In the latest of go the any type is supported, which is simply a type alias to the empty interface, and equivalent in all ways. 
