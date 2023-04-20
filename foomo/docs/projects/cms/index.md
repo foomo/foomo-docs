@@ -1,7 +1,4 @@
----
-sidebar_position: 0
----
-# Intro
+# CMS
 
 The foomo team has extensive experience with a wide range of CMS systems. Our long journey in the field has brought us very close to the https://jamstack.org . We almost exclusively work with https://app.contentful.com/ but we are watching others like https://www.stripe.com/ very closely.
 

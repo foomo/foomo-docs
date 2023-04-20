@@ -1,4 +1,4 @@
-# Introduction
+# Gocontentful
 
 ## What is Contentful
 
