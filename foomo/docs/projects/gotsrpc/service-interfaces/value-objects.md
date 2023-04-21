@@ -1,3 +1,6 @@
+---
+sidebar_position: 1
+---
 # Value Objects
 
 Typically value objects will be serialized / marshalled as JSON. Please refer to this documentation:

@@ -25,7 +25,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          sidebarCollapsed: false,
+          sidebarCollapsed: true,
           editUrl: 'https://github.com/foomo/foomo-docs/tree/main/foomo',
         },
         blog: {

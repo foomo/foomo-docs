@@ -1,6 +1,6 @@
 # CMS
 
-The foomo team has extensive experience with a wide range of CMS systems. Our long journey in the field has brought us very close to the https://jamstack.org . We almost exclusively work with https://app.contentful.com/ but we are watching others like https://www.stripe.com/ very closely.
+The foomo team has extensive experience with a wide range of CMS systems. Our long journey in the field has brought us very close to the https://jamstack.org . We almost exclusively work with https://app.contentful.com/ but we are watching others like https://strapi.io/ and https://directus.io/ very closely.
 
 ## Expectations and challenges
 
@@ -28,12 +28,12 @@ Let us take a look at a real world example:
 
 | application route / ingress | app developers view  | SEO URL requirement                |
 |:----------------------------|:---------------------|:-----------------------------------|
-| /content:id                 | /content/1           | /                                  |
+| /content/:id                | /content/1           | /                                  |
 |                             | /content/2           | /mens                              |
-| /category:id                | /category/1          | /mens/shirts                       |
+| /category/:id               | /category/1          | /mens/shirts                       |
 |                             | /category/2          | /mens/shirts/business              |
-| /product:id                 | /product/1           | /mens-shirt-awesome-blue-medium    |
-| /store:id                   | /store/1             | /mens/stores/london-perfect-shirts |
+| /product/:id                | /product/1           | /mens-shirt-awesome-blue-medium    |
+| /store/:id                  | /store/1             | /mens/stores/london-perfect-shirts |
 |                             | /store/2             | /kids/stores/lego-paradise         |
 
 ## our approach
