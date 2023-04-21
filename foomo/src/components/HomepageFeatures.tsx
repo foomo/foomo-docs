@@ -64,7 +64,7 @@ const FeatureList: FeatureItem[] = [
     // image: '/img/undraw_docusaurus_react.svg',
     description: <>foomo has extensive support for headless CMS Systems</>,
     callToAction: "learn the patterns",
-    to: "/docs/projects/cms/intro",
+    to: "/docs/projects/cms",
   },
   {
     title: "Architecture",

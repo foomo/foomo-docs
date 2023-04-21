@@ -38,7 +38,7 @@ Let us take a look at a real world example:
 
 ## our approach
 
-[contentserver](contentserver) allows you to resolve URIs to mime types, which can be handled by applications.
+[contentserver](cms/contentserver) allows you to resolve URIs to mime types, which can be handled by applications.
 
 Let us return to our ecommerce example.
 
@@ -52,13 +52,13 @@ Let us return to our ecommerce example.
 
 ### export contentent to contentserver
 
-[contentserver](contentserver) allows you to export your content tree as json
+[contentserver](cms/contentserver) allows you to export your content tree as json
 
 ### resolving URIs
 
 Use standard application routing whereever possible, since it is the most efficient option.
 
-Once all standard URI resolution fails, query [contentserver](contentserver) and it will return the resolved node
+Once all standard URI resolution fails, query [contentserver](cms/contentserver) and it will return the resolved node
 
 ```json
 ```

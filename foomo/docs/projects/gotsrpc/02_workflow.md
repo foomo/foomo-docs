@@ -5,7 +5,7 @@
 - define a central place for your Go service interface definitions
 - define a central place where your TypeScript client code will be generated to
 - create one central [`gotsrpc.yaml`](gotsrpc.yaml)
-- implement a TypeScript [`transport`](transport) for your project
+- implement a TypeScript [`transport`](client-transport) for your project
 
 ## Per service
 
