@@ -1,16 +1,16 @@
 import React from "react";
 
-export const Iframe = (props: {
+export const Iframe = (props:React.PropsWithRef<{
   proportion?: number;
   src: string;
   style?: React.CSSProperties;
-}) => {
-  let { proportion, src } = props;
+}> ) => {
+  let { proportion, src, style } = props;
   if (!proportion) {
     proportion = 4 / 3;
   }
-  if (!props.style) {
-    props.style = {};
+  if (style) {
+    style = {};
   }
 
   return (
@@ -21,7 +21,7 @@ export const Iframe = (props: {
         paddingTop: 100 / proportion + "%",
         position: "relative",
         float: "left",
-        ...props.style,
+        ...style,
       }}
     >
       <iframe

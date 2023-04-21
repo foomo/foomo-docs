@@ -68,39 +68,39 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'general/intro',
+            docId: 'general/index',
             position: 'left',
             label: 'General',
             
           },
           {
             type: 'doc',
-            docId: 'frontend/intro',
+            docId: 'frontend/index',
             position: 'left',
             label: 'Frontend',
             
           },
           {
             type: 'doc',
-            docId: 'backend/intro',
+            docId: 'backend/index',
             position: 'left',
             label: 'Backend',
           },
           {
             type: 'doc',
-            docId: 'devops/intro',
+            docId: 'devops/index',
             position: 'left',
             label: 'DevOps',
           },
           {
             type: 'doc',
-            docId: 'project-management/intro',
+            docId: 'project-management/index',
             position: 'left',
             label: 'PM',
           },
           {
             type: 'doc',
-            docId: 'projects/intro',
+            docId: 'projects/index',
             position: 'left',
             label: 'Projects',
           },

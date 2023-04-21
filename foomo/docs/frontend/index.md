@@ -1,11 +1,10 @@
 ---
-id: intro
-sidebar_label: Intro
+id: index
 sidebar_position: 1
 ---
 # Frontend Guide
 
-In this section you will find a guide on how to develop frontends with the foomo stack. Please also see the [general guide](../general/intro).
+In this section you will find a guide on how to develop frontends with the foomo stack. Please also see the [general guide](general).
 
 Let me share a few thoughts on frontend development from our journey [@bestbytes](https://www.bestbytes.com) the company behind https://www.foomo.org .
 
@@ -17,7 +16,7 @@ It was the era of experimentation, that turned the web into the application runt
 
 ## A little history
 
-The current [stack](stack) is the result of a more than 20 year journey.
+The current [stack](frontend/stack) is the result of a more than 20 year journey.
 
 ### Last millenium
 

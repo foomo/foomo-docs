@@ -1,13 +1,13 @@
 ---
-id: intro
-sidebar_label: Intro
+id: index
+sidebar_label: Overview
 sidebar_position: 0
 ---
 # foomo project overview
 
 ___"Stuff we wrote, because nobody else wanted to"___
 
-All foomo projects are available here https://github.com/foomo also see [architecture](architecture) 
+All foomo projects are available here https://github.com/foomo also see [architecture](projects/architecture) 
 
 We are using the best industry standards and only fill in our own bits, when necessary.
 

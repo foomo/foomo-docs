@@ -32,7 +32,7 @@ const FeatureList: FeatureItem[] = [
       </>
     ),
     callToAction: "get started",
-    to: "/docs/general/intro",
+    to: "/docs/general",
   },
   {
     title: "Frontend guides",
@@ -43,21 +43,21 @@ const FeatureList: FeatureItem[] = [
       </>
     ),
     callToAction: "go build a frontend",
-    to: "/docs/frontend/intro",
+    to: "/docs/frontend",
   },
   {
     title: "Backend guides",
     // image: '/img/undraw_docusaurus_react.svg',
     description: <>Write fast and reliable services in Go and run them in the cloud</>,
     callToAction: "build a server",
-    to: "/docs/backend/intro",
+    to: "/docs/backend",
   },
   {
     title: "Projects",
     // image: '/img/undraw_docusaurus_react.svg',
     description: <>Foomo projects - libraries, utilities, friendly daemons and more</>,
     callToAction: "explore",
-    to: "/docs/projects/intro",
+    to: "/docs/projects",
   },
   {
     title: "CMS",
@@ -89,7 +89,7 @@ const FeatureList: FeatureItem[] = [
     // image: '/img/undraw_docusaurus_react.svg',
     description: <>our approach to run cloud native applications where they belong</>,
     callToAction: "take me to the cloud",
-    to: "/docs/devops/intro",
+    to: "/docs/devops",
   },
   {
     title: "Blog",
