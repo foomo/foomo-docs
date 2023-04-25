@@ -14,5 +14,5 @@ sidebar_position: 3
 
 1. define [service interfaces](service-interfaces) in Go
 2. configure code generation in [`gotsrpc.yaml`](cli/gotsrpc.yaml)
-3. generate service proxies and client with [`gotsrpc` cli](cli)
+3. generate service proxies and clients with [`gotsrpc` cli](cli)
 4. go to 1.

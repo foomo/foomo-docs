@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+toc_max_heading_level: 5
 ---
 # Value Objects
 
@@ -86,7 +87,105 @@ interface Car {
 }
 ```
 
-## Slices / Arrays
+## Slices
+
+Slices are nilable in Go, thus they can be null in TypeScript. They translate to `Array<T>|null` in TypeScript.
+### Scalar types
+
+```go
+[]string
+[]int
+// other numeric types
+[]bool
+```
+
+```typescript
+Array<string>|null
+Array<number>|null
+// all numeric types are numbers
+Array<boolean>|null
+```
+
+### Other slice type examples
+
+
+#### structs
+```go
+[]Car
+[]*Car
+```
+
+```typescript
+Array<Car>|null
+Array<Car|null>|null
+```
+#### nested slices
+```go
+[][]string
+[][]int
+// ...
+```
+
+```typescript
+Array<Array<string>|null>|null
+Array<Array<number>|null>|null
+// ...
+```
+
+
 
 ## Maps / Records
 
+Like slices Go maps are nilable. They translate to `Record<K extends keyof any, T>|null` in TypeScript. 
+
+
+### scalars
+
+```go
+map[string]string
+```
+
+```typescript
+Record<string,string>|null
+```
+
+### structs
+
+```go
+map[string]*Car
+```
+
+```typescript
+Record<string,Car|null>|null
+```
+
+### slices
+
+```go
+map[string][]*Car
+```
+
+```typescript
+Record<string,Array<Car|null>|null>|null
+```
+
+## custom map types
+
+Go and TypeScript support map / Record types:
+
+:::note
+Scalar types / type aliases are of particular value when using maps, because they can add strong semantics:
+:::
+
+```go
+type CarDirectory map[ProductID]*Car
+```
+
+```typescript
+type CarDirectory = Record<ProductID,Car|null>|null
+```
+
+
+
+
+### nested maps

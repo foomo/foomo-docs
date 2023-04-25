@@ -1,6 +1,6 @@
 # Service Interfaces
 
-`Gotsrpc` services are defined in Go. Visit the [playground](playground)
+`Gotsrpc` services are defined in Go.
 
 ## Interface definitions and value objects
 
