@@ -94,12 +94,6 @@ const config = {
           },
           {
             type: 'doc',
-            docId: 'project-management/index',
-            position: 'left',
-            label: 'PM',
-          },
-          {
-            type: 'doc',
             docId: 'projects/index',
             position: 'left',
             label: 'Projects',

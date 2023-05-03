@@ -1,3 +1,0 @@
-# Responsibility
-
-Taking responsibility for a project ...
