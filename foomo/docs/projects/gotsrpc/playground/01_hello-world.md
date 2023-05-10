@@ -21,7 +21,7 @@ https://github.com/foomo/gotsrpc-playground/blob/main/server/server/helloworld.g
 Service proxy instantiation
 
 ```go reference title="server/main.go"
-https://github.com/foomo/gotsrpc-playground/blob/main/server/main.go#L37
+https://github.com/foomo/gotsrpc-playground/blob/main/server/main.go#L38
 ```
 
 Using the service proxy as a http handler
