@@ -1,5 +1,7 @@
 # Playground
 
+https://github.com/foomo/gotsrpc-playground
+
 The gotsrpc playground is designed to:
 
 - provide examples for this documentation
