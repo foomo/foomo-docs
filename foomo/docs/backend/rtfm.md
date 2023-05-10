@@ -11,4 +11,5 @@ sidebar_position: 2
 ## http
 
 - https://www.w3.org/Protocols/
-- https://httpstatusdogs.com/
+- https://http.dev/
+- https://http.dog/
