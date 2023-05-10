@@ -29,3 +29,15 @@ https://github.com/foomo/gotsrpc-playground/blob/main/gotsrpc.yaml#L1-L16
 ```yml reference title="playground gotspc.yaml"
 https://github.com/foomo/gotsrpc-playground/blob/main/gotsrpc.yaml#L43-L46
 ```
+
+## GOModule Support
+
+To support go modules add 
+
+```yaml
+
+module:
+  name: github.com/foomo/gotsrpc
+  path: ../ # Relative Or Absolute Path where the package was checked out (root of the package)
+
+fe```
