@@ -4,6 +4,8 @@ Spin the Wheel of Fortune to win a price.
 
 [http://localhost:8080/wheel-of-fortune](http://localhost:8080/wheel-of-fortune)
 
+This example shows the union feature as described here: [../service-interfaces/value-objects#union-types](../service-interfaces/value-objects#union-types)
+
 ## Go service
 
 Service interface defintion

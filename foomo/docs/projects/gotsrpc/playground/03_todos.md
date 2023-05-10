@@ -1,5 +1,6 @@
 # Todos
 
+There was a time, when building a todo app was the default demo, so here is one for you.:
 ## Go Service
 
 Service interface defintion

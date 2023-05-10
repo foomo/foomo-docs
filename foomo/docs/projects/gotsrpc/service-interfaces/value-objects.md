@@ -273,3 +273,6 @@ type Basic interface {
 }
 ```
 
+### Union Types
+
+When static types seem to be in the way
