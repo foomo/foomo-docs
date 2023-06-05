@@ -6,7 +6,7 @@ Generated Go RPC service proxies for generated Go and TypeScript clients.
 
 **`gotsrpc` ensures type safety and seamless integration of Go RPC services and TypeScript clients**
 
-Everything starts with a Go interface definition. The gotsrpc command line tool can the be used to generate a Go service proxy and TypeScript and Go clients. The next step is to implement the interface in Go and expose it to http requests with the generated service proxies.
+Everything starts with a Go interface definition. Then generate Go service proxies and TypeScript and Go clients with the `gotsrpc` command line tool. The next step is to implement the interface in Go and expose it to http requests with the generated service proxies.
 
 ## Use cases
 
