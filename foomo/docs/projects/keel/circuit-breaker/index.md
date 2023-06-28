@@ -4,7 +4,7 @@ Sometimes things go wrong and a service does not respond anymore. Be it because 
 
 Simply put a circuit breaker has three different states:
 
-![](/img/keel-circuit-breaker-states.jpg)
+![](states.jpg)
 
 We did not re-invent the wheel (yet), but rather used an existing circuit breaker. However, we extended the functionality a bit. More on that later. For referance, here are links to the [underlying circuit breaker](https://github.com/sony/gobreaker) and some more [information on circuit breakers in general](https://learn.microsoft.com/en-us/previous-versions/msp-n-p/dn589784(v=pandp.10)?redirectedfrom=MSDN).
 

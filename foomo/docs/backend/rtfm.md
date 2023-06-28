@@ -4,9 +4,10 @@ sidebar_position: 2
 ---
 # External documentation resources
 
-## go
+## Go
 
 - https://go.dev
+- https://github.com/avelino/awesome-go#readme
 
 ## http
 
