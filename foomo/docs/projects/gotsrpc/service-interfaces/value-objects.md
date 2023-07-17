@@ -276,3 +276,87 @@ type Basic interface {
 ### Union Types
 
 When static types seem to be in the way
+
+#### Scalars
+
+```go title="Go"
+type (
+	Species struct {
+		LandAnimals  *LandAnimals  `json:"landAnimals,omitempty" gotsrpc:"union"`
+		WaterAnimals *WaterAnimals `json:"waterAnimals,omitempty" gotsrpc:"union"`
+	}
+	LandAnimals  string
+	WaterAnimals string
+	)
+	
+	const (
+		Cat LandAnimals = "cat"
+		Dog LandAnimals = "dog"
+	)
+	
+	const (
+		Catfish WaterAnimals = "catfish"
+		Dogfish WaterAnimals = "dogfish"
+	)
+)
+```
+
+```typescript title="TypeScript"
+export enum WaterAnimals {
+	Catfish = "catfish",
+	Dogfish = "dogfish",
+}
+
+export enum LandAnimals {
+	Cat = "cat",
+	Dog = "dog",
+}
+
+export const Species = { ...github_com_foomo_gotsrpc_playground_server_services_wof.LandAnimals, ...github_com_foomo_gotsrpc_playground_server_services_wof.WaterAnimals }
+export type Species = github_com_foomo_gotsrpc_playground_server_services_wof.LandAnimals | github_com_foomo_gotsrpc_playground_server_services_wof.WaterAnimals
+```
+
+#### Structs
+
+
+```go title="Go"
+type (
+	Trip struct {
+		Kind        string `json:"kind" gotsrpc:"type:'Trip'"`
+		Destination string `json:"destination"`
+	}
+	Car struct {
+		Kind        string `json:"kind" gotsrpc:"type:'Car'"`
+		Model       string `json:"model"`
+	}
+	Pet struct {
+		Kind        string `json:"kind" gotsrpc:"type:'Pet'"`
+		Name        string `json:"name"`
+	}
+	Price struct {
+		Trip *Trip `json:"trip,omitempty" gotsrpc:"union"`
+		Car  *Car  `json:"car,omitempty" gotsrpc:"union"`
+		Pet  *Pet  `json:"pet,omitempty" gotsrpc:"union"`
+	}
+)
+```
+
+```typescript title="TypeScript"
+export interface Trip {
+	kind:'Trip';
+	destination:string;
+}
+
+export interface Car {
+	kind:'Car';
+	model:string;
+}
+
+export interface Pet {
+	kind:'Pet';
+	name:string;
+}
+
+export type Price = github_com_foomo_gotsrpc_playground_server_services_wof.Trip | github_com_foomo_gotsrpc_playground_server_services_wof.Car | github_com_foomo_gotsrpc_playground_server_services_wof.Pet | undefined
+```
+
