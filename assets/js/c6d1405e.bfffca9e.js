@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkfoomo=self.webpackChunkfoomo||[]).push([[3866],{6310:a=>{a.exports=JSON.parse('{"label":"cardinality","permalink":"/blog/tags/cardinality","allTagsPath":"/blog/tags","count":1}')}}]);

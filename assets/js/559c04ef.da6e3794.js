@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkfoomo=self.webpackChunkfoomo||[]).push([[1213],{4203:o=>{o.exports=JSON.parse('{"label":"memory","permalink":"/blog/tags/memory","allTagsPath":"/blog/tags","count":1}')}}]);

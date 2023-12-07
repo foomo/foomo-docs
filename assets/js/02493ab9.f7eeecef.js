@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkfoomo=self.webpackChunkfoomo||[]).push([[4761],{7:e=>{e.exports=JSON.parse('{"label":"search-engine","permalink":"/blog/tags/search-engine","allTagsPath":"/blog/tags","count":1}')}}]);

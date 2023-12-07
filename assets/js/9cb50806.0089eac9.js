@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkfoomo=self.webpackChunkfoomo||[]).push([[9494],{4960:o=>{o.exports=JSON.parse('{"label":"concurrency","permalink":"/blog/tags/concurrency","allTagsPath":"/blog/tags","count":1}')}}]);

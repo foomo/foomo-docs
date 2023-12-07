@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkfoomo=self.webpackChunkfoomo||[]).push([[2471],{6287:e=>{e.exports=JSON.parse('{"label":"bundle size","permalink":"/blog/tags/bundle-size","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkfoomo=self.webpackChunkfoomo||[]).push([[3969],{5475:e=>{e.exports=JSON.parse('{"label":"prometheus","permalink":"/blog/tags/prometheus","allTagsPath":"/blog/tags","count":1}')}}]);
