@@ -9,7 +9,8 @@ Downloads are available here: https://github.com/foomo/gotsrpc/releases
 Homebrew:
 
 ```shell
-brew install foomo/gotsrpc/gotsrpc
+brew tap foomo/tap
+brew install foomo/tap/gotsrpc
 ```
 
 ## Usage
