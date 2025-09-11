@@ -1,6 +1,7 @@
 ---
 title: macOS Security
 slug: /security/macos
+authors: [philipp]
 ---
 
 ## Overview

@@ -1,6 +1,7 @@
 ---
 title: Windows Security
 slug: /security/windows
+authors: [philipp]
 ---
 
 ## Overview

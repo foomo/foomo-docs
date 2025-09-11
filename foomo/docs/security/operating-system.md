@@ -1,6 +1,7 @@
 ---
 title: Operating System Security
 slug: /security/operating-system
+authors: [philipp]
 ---
 
 # Operating System Security

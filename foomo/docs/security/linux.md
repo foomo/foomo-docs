@@ -1,6 +1,7 @@
 ---
 title: Linux Security
 slug: /security/linux
+authors: [philipp]
 ---
 
 ## Overview

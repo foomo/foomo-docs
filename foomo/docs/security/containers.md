@@ -1,6 +1,7 @@
 ---
 title: Container Security
 slug: /security/containers
+authors: [philipp]
 ---
 
 This document outlines best practices for securing Docker containers, from building images to running them in production. The information is largely based on the excellent [container-security-checklist by krol3](https://github.com/krol3/container-security-checklist).
