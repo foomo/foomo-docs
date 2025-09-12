@@ -98,6 +98,12 @@ const config = {
             position: 'left',
             label: 'Projects',
           },
+          {
+            type: 'doc',
+            docId: 'security/index',
+            position: 'left',
+            label: 'Security',
+          },
           {to: '/blog', label: 'Blog', position: 'right'},
           // {
           //   href: 'https://github.com/facebook/docusaurus',
