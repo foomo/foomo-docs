@@ -1,5 +1,5 @@
 ---
-title: Organizational Security Operations
+title: Organizational Security
 slug: /security/organization
 authors: [philipp]
 ---

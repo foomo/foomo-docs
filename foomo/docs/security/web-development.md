@@ -1,5 +1,5 @@
 ---
-title: Secure Web Application Development
+title: Web Application Development
 slug: /security/web-development
 authors: [philipp]
 ---
