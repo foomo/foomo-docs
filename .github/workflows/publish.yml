@@ -23,7 +23,7 @@ jobs:
         working-directory: foomo
         run: |
           yarn install --frozen-lockfile
-          npm run deploy
+          npm run build
           
       - uses: actions/upload-pages-artifact@v3
         with:
