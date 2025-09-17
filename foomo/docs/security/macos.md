@@ -79,7 +79,7 @@ Harden in layers: identity, device state, data protections, network posture, app
   - [ ] Encrypt [Time Machine](https://support.apple.com/en-us/HT201250) backups; restrict to approved destinations only, such as a designated, encrypted network share, to prevent data leakage via backups.
 
 - Software Update and Patching
-  - [ ] Enable automatic OS updates, app updates, background updates, and Rapid Security Responses (RSR). Timely patching is one of the most effective security measures.
+  - [ ] Enable automatic OS updates, app updates, background updates, and Rapid Security Responses (RSR). Timely patching is one of the most effective security measures. Rapid Security Responses are a new type of software release for macOS, iOS and iPadOS. They deliver important security improvements between software updates – for example, improvements to the Safari web browser, the WebKit framework stack, or other critical system libraries. They may also be used to mitigate some security issues more quickly, such as issues that might have been exploited or reported to exist “in the wild.”
     ```bash
     # Manually check for available software updates
     softwareupdate -l
@@ -212,7 +212,7 @@ For on-demand scanning and removal of malware, adware, and potentially unwanted 
 
 - [ ] MDM enrollment and supervision
 - [ ] FileVault enabled with escrowed recovery key
-- [ ] Automatic OS/app/RSR updates
+- [ ] Automatic OS/app/Rapid Security Response (RSR) updates
 - [ ] Standard user accounts; no auto-login; Guest disabled
 - [ ] Firewall + Stealth Mode enabled; sharing services off
 - [ ] Gatekeeper/Notarization enforced; no legacy kexts
@@ -222,7 +222,7 @@ For on-demand scanning and removal of malware, adware, and potentially unwanted 
 
 - [ ] DNS/content filtering for phishing/malware
 - [ ] Encrypted Time Machine backups to approved targets
-- [ ] PPPC minimized; periodic review of Full Disk Access
+- [ ] Keep Privacy Preferences Policy Control (PPPC) grants to a minimum
 - [ ] Browser hardening via managed policies
 
 ### Team-Specific
