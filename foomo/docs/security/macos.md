@@ -28,6 +28,8 @@ This document distills the macOS security model and recommended hardening practi
   - [Baseline for All Corporate Macs](#baseline-for-all-corporate-macs)
   - [Additional Hardening for Admins and Developers](#additional-hardening-for-admins-and-developers)
   - [High-Risk or Data-Critical Roles](#high-risk-or-data-critical-roles)
+- [Third-Party Security Tools](#third-party-security-tools)
+- [Commercial Security Tools](#commercial-security-tools)
 - [Operational Playbooks](#operational-playbooks-condensed)
 - [Implementation Notes](#implementation-notes-mdm-first)
 - [Quick Reference Checklists](#quick-reference-checklists)
@@ -155,6 +157,29 @@ Harden in layers: identity, device state, data protections, network posture, app
 - [ ] Network egress filtering/DNS filtering; VPN required; per-app VPN for sensitive tools. Use a network filter to block connections to known malicious domains. A per-app VPN can ensure that only specific, approved applications can access sensitive internal resources.
 - [ ] Screen recording disabled except for approved collaboration tools.
 - [ ] Camera/microphone disabled unless explicitly needed.
+
+## Third-Party Security Tools
+
+While macOS provides a strong security foundation, a layered defense is always best. The following free, open-source tools from [Objective-See](https://objective-see.org/tools.html) provide excellent visibility into system internals and can help detect advanced threats. All tools are open-source and available on [GitHub](https://github.com/objective-see).
+
+- **LuLu**: A free, open-source firewall to monitor and block outgoing network connections.
+- **Do Not Disturb**: Detects and alerts on physical access ("evil maid") attacks.
+- **KnockKnock**: Uncovers persistently installed software to generically reveal malware.
+- **TaskExplorer**: Visually explores all running processes, their signature status, loaded libraries, open files, and network connections.
+- **ReiKey**: Scans for and detects persistent keyboard "event taps" that could be used to intercept keystrokes.
+- **Netiquette**: A network monitor to inspect all sockets and connections.
+- **BlockBlock**: Monitors persistence locations and alerts on any new persistent component.
+- **RansomWhere?**: Generically stops ransomware by monitoring the file-system for the creation of encrypted files by suspicious processes.
+- **OverSight**: Monitors a Mac's microphone and webcam, alerting when they are activated.
+- **KextViewr**: Displays all loaded kernel extensions and their signing status.
+- **Dylib Hijack Scanner**: Scans for applications susceptible to or already hijacked via dylib hijacking.
+- **What's Your Sign**: A Finder extension to display code-signing information for any file.
+
+## Commercial Security Tools
+
+For on-demand scanning and removal of malware, adware, and potentially unwanted programs (PUPs), the following tool is highly recommended.
+
+- **[Malwarebytes for Mac](https://www.malwarebytes.com)**: Provides a free, reputable on-demand scanner that can detect and remove threats that may be missed by built-in macOS protections. While it offers a premium real-time protection service, the free scanner is an excellent tool for periodic system health checks or for remediating an existing infection.
 
 ## Operational Playbooks
 
