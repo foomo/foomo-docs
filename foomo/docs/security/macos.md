@@ -39,7 +39,7 @@ This document distills the macOS security model and recommended hardening practi
 - Preserve user privacy while enabling essential productivity, IT support, and security observability.
 - Prefer native, built-in macOS security controls. Use a Mobile Device Management (MDM) solution to enforce a secure-by-default posture that is centrally managed and auditable.
 
-## Apple Platform Foundations (what macOS gives you)
+## Apple Platform Foundations
 
 - Hardware Root of Trust and [Secure Boot](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface#Secure_Boot): The system validates that only legitimate, Apple-signed code runs at startup, preventing boot-level malware from taking hold.
 - [Secure Enclave](https://en.wikipedia.org/wiki/Apple_Silicon#Security_and_privacy) (SEP) and keybags: A dedicated hardware security processor that handles cryptographic operations for sensitive data like FileVault keys, Keychain items, and Touch ID, isolating them from the main OS.
@@ -51,11 +51,11 @@ This document distills the macOS security model and recommended hardening practi
   ```
 - [Gatekeeper](https://en.wikipedia.org/wiki/Gatekeeper_(macOS)) and [Notarization](https://developer.apple.com/documentation/security/notarizing_macos_software_before_distribution): Before a downloaded app runs for the first time, Gatekeeper verifies that it’s from an identified developer and has been notarized by Apple—an automated check for malicious content.
 - [App Sandbox](https://developer.apple.com/documentation/security/app_sandbox) and entitlements: Applications from the App Store are sandboxed, meaning they are restricted in their access to system resources and user data. They must declare required permissions (entitlements), limiting the potential damage if compromised.
-- [Transparency, Consent, and Control](https://en.wikipedia.org/wiki/Transparency,_Consent,_and_Control) (TCC): The system prompts the user for explicit permission before an app can access sensitive data or services, such as the camera, microphone, location, contacts, or screen recording.
-- [XProtect](https://en.wikipedia.org/wiki/XProtect) and Apple malware removal: macOS includes built-in, signature-based antivirus capabilities that silently check for and block/remove known malware in the background. Apple pushes updates to it automatically.
+- [Transparency, Consent, and Control](https://support.apple.com/en-gb/guide/security/secddd1d86a6/web) (TCC): The system prompts the user for explicit permission before an app can access sensitive data or services, such as the camera, microphone, location, contacts, or screen recording.
+- [XProtect](https://support.apple.com/en-gb/guide/security/sec469d47bd8/web) and Apple malware removal: macOS includes built-in, signature-based antivirus capabilities that silently check for and block/remove known malware in the background. Apple pushes updates to it automatically.
 - Full‑disk encryption ([FileVault](https://en.wikipedia.org/wiki/FileVault)): Provides strong, hardware-accelerated AES-XTS 256-bit encryption for the entire startup disk, protecting all data at rest. If a device is lost or stolen, the data is unreadable without the user's password or a secure recovery key.
 
-## Opinionated Baseline (what we enforce)
+## Opinionated Baseline
 
 Harden in layers: identity, device state, data protections, network posture, app controls, and telemetry. Use MDM to apply and verify settings at scale.
 
@@ -156,7 +156,7 @@ Harden in layers: identity, device state, data protections, network posture, app
 - [ ] Screen recording disabled except for approved collaboration tools.
 - [ ] Camera/microphone disabled unless explicitly needed.
 
-## Operational Playbooks (condensed)
+## Operational Playbooks
 
 - Lost or Stolen Mac
   - [ ] Immediately mark device lost in MDM; enable Activation Lock and Lost Mode; attempt remote lock/wipe
@@ -173,7 +173,7 @@ Harden in layers: identity, device state, data protections, network posture, app
 - Offboarding
   - [ ] Disable accounts/tokens; revoke device compliance; remote wipe or reassign after backup/escrow.
 
-## Implementation Notes (MDM-first)
+## Implementation Notes
 
 - Use Automated Device Enrollment and supervision to lock down Setup Assistant and require MDM profiles at first boot. This prevents users from bypassing enrollment.
 - Enforce FileVault with personal recovery key escrow and, if policy requires, an institutional key held in a secure [HSM](https://en.wikipedia.org/wiki/Hardware_security_module)-backed secret manager.
@@ -183,7 +183,7 @@ Harden in layers: identity, device state, data protections, network posture, app
 
 ## Quick Reference Checklists
 
-### Minimum Baseline (must-have)
+### Minimum Baseline
 
 - [ ] MDM enrollment and supervision
 - [ ] FileVault enabled with escrowed recovery key
@@ -193,14 +193,14 @@ Harden in layers: identity, device state, data protections, network posture, app
 - [ ] Gatekeeper/Notarization enforced; no legacy kexts
 - [ ] EDR deployed and reporting; logs forwarded
 
-### Nice-to-Have (should-have)
+### Advanced Defense
 
 - [ ] DNS/content filtering for phishing/malware
 - [ ] Encrypted Time Machine backups to approved targets
 - [ ] PPPC minimized; periodic review of Full Disk Access
 - [ ] Browser hardening via managed policies
 
-### Team-Specific (as-needed)
+### Team-Specific
 
 - [ ] Developer entitlements and tools managed; signed artifacts; SBOMs
 - [ ] High-risk roles: removable media controls, stricter TCC, per-app VPN
