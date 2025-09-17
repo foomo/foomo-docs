@@ -64,8 +64,8 @@ Harden in layers: identity, device state, data protections, network posture, app
 ### Baseline for All Corporate Macs
 
 - Identity and Enrollment
-  - [ ] Device enrolled in [MDM](https://en.wikipedia.org/wiki/Mobile_device_management) via Automated Device Enrollment ([ABM](https://www.apple.com/business/it/)/[ASM](https://www.apple.com/education/schools/)) with supervision. This non-removable management profile ensures devices are corporate-owned and configured securely from their very first boot (zero-touch deployment).
-  - [ ] Enforce compliant posture to access corporate resources (SSO, MFA, device compliance). For example, access to cloud apps can require that the device is managed, has FileVault enabled, and is running a recent OS version.
+  - [ ] Device enrolled in [MDM](https://en.wikipedia.org/wiki/Mobile_device_management) via Automated Device Enrollment ([Apple Business Manager (ABM)](https://www.apple.com/business/it/)/[Apple School Manager (ASM)](https://www.apple.com/education/schools/)) with supervision. This non-removable management profile ensures devices are corporate-owned and configured securely from their very first boot (zero-touch deployment).
+  - [ ] Enforce compliant posture to access corporate resources (Single Sign-On (SSO), Multi-Factor Authentication (MFA), device compliance). For example, access to cloud apps can require that the device is managed, has FileVault enabled, and is running a recent OS version.
 
 - Disk and Data Protection
   - [ ] Enable [FileVault](https://en.wikipedia.org/wiki/FileVault) (FV2) on all Macs; escrow recovery key to MDM/key escrow service. This ensures data at rest is encrypted. Escrowing the key allows IT to perform data recovery if a user forgets their password.
@@ -79,7 +79,7 @@ Harden in layers: identity, device state, data protections, network posture, app
   - [ ] Encrypt [Time Machine](https://support.apple.com/en-us/HT201250) backups; restrict to approved destinations only, such as a designated, encrypted network share, to prevent data leakage via backups.
 
 - Software Update and Patching
-  - [ ] Enable automatic OS updates, app updates, background updates, and Rapid Security Responses. Timely patching is one of the most effective security measures.
+  - [ ] Enable automatic OS updates, app updates, background updates, and Rapid Security Responses (RSR). Timely patching is one of the most effective security measures.
     ```bash
     # Manually check for available software updates
     softwareupdate -l
@@ -87,7 +87,7 @@ Harden in layers: identity, device state, data protections, network posture, app
   - [ ] Define maximum deferral windows and install deadlines via MDM. For example, allow users to defer a critical update for 3 days, after which installation is forced. This balances convenience with security.
 
 - Account Model
-  - [ ] Users operate as Standard accounts; use JIT elevation or a separate, dormant Admin account. This enforces the principle of least privilege. Administrative tasks should require temporary, auditable privilege elevation.
+  - [ ] Users operate as Standard accounts; use Just-In-Time (JIT) elevation or a separate, dormant Admin account. This enforces the principle of least privilege. Administrative tasks should require temporary, auditable privilege elevation.
   - [ ] Block local account creation outside IT workflows; disable Guest account. This prevents users from creating unauthorized accounts to bypass controls. The Guest account provides an unmanaged access vector and should be disabled.
     ```bash
     # Disable the guest account from the command line
@@ -119,7 +119,7 @@ Harden in layers: identity, device state, data protections, network posture, app
     # Expected output: assessments enabled
     ```
   - [ ] Block legacy kernel extensions; prefer [System Extensions](https://developer.apple.com/documentation/systemextensions); approve only vetted Team IDs. Legacy kernel extensions (kexts) are being phased out. Modern System Extensions run in a more restricted userspace environment.
-  - [ ] PPPC/TCC: grant Full Disk Access, Accessibility, Screen Recording only to required tools (e.g., EDR). Manage Privacy Preferences Policy Control (PPPC) centrally to grant powerful permissions sparingly and only to vetted security or IT support tools.
+  - [ ] Privacy Preferences Policy Control (PPPC)/TCC: grant Full Disk Access, Accessibility, Screen Recording only to required tools (e.g., Endpoint Detection and Response (EDR)). Manage Privacy Preferences Policy Control (PPPC) centrally to grant powerful permissions sparingly and only to vetted security or IT support tools.
   - [ ] Application allow/deny lists managed by MDM for sensitive roles. For high-risk roles, an allow-list that only permits approved applications to run provides a very strong defense against untrusted code.
 
 - Browser and Content Protections
@@ -131,7 +131,7 @@ Harden in layers: identity, device state, data protections, network posture, app
   - [ ] Limit analytics/diagnostics sharing to minimum necessary; disable ad personalization.
 
 - Telemetry, Detection, and Response
-  - [ ] Deploy managed EDR/XDR (endpoint detection/response) using Apple’s [Endpoint Security](https://developer.apple.com/documentation/endpointsecurity) framework; verify coverage. An EDR agent is crucial for detecting and responding to advanced threats that bypass preventative controls.
+  - [ ] Deploy managed Endpoint Detection and Response (EDR)/Extended Detection and Response (XDR) using Apple’s [Endpoint Security](https://developer.apple.com/documentation/endpointsecurity) framework; verify coverage. An EDR agent is crucial for detecting and responding to advanced threats that bypass preventative controls.
   - [ ] Enable unified logging collection for security‑relevant events; forward to a [SIEM](https://en.wikipedia.org/wiki/Security_information_and_event_management). Centralize macOS logs in a SIEM to enable threat hunting, incident investigation, and compliance monitoring.
     ```bash
     # Example: stream logs in real-time to view security-related events
@@ -227,7 +227,7 @@ For on-demand scanning and removal of malware, adware, and potentially unwanted 
 
 ### Team-Specific
 
-- [ ] Developer entitlements and tools managed; signed artifacts; SBOMs
+- [ ] Developer entitlements and tools managed; signed artifacts; Software Bill of Materials (SBOMs)
 - [ ] High-risk roles: removable media controls, stricter TCC, per-app VPN
 
 ## References
