@@ -12,6 +12,10 @@
   background-color: #fafafa;
 }
 
+:global(html[data-theme='dark']) .features .feature {
+  background-color: #303030;
+}
+
 .featureSvg {
   height: 200px;
   width: 200px;

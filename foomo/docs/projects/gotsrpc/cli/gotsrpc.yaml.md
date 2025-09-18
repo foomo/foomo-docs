@@ -40,4 +40,4 @@ module:
   name: github.com/foomo/gotsrpc
   path: ../ # Relative Or Absolute Path where the package was checked out (root of the package)
 
-fe```
+```

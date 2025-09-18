@@ -77,7 +77,7 @@ The summary shows we are only covering 22% of the code. The goal is not to cover
 
 The question is: how do we know exactly which lines of code we're covering through the test suite? Again, go test comes to the rescue through another option: _-coverprofile_ lets us specify an output file that will contain references to each single line of code involved in the analysis. It is a text file, but not very readable:
 
-```
+```go
 github.com/foom...tapi/gocontentfulvolibproduct.go:21.86,22.15 1 1
 github.com/foom...tapi/gocontentfulvolibproduct.go:25.2,25.18 1 1
 github.com/foom...tapi/gocontentfulvolibproduct.go:28.2,29.16 2 0

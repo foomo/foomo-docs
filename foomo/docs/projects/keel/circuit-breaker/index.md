@@ -52,7 +52,7 @@ When the `IsSuccessful`-function returns an error (and the ignore value is set t
 ### Examples
 Let's say we want to stop sending requests once we encountered three consecutive failures.
 
-``` go
+```go
 client := keelhttp.NewHTTPClient(
 		keelhttp.HTTPClientWithRoundTripware(l,
 			roundtripware.CircuitBreaker(&roundtripware.CircuitBreakerSettings{
@@ -75,7 +75,7 @@ client := keelhttp.NewHTTPClient(
 
 Now lets say we see we also want to detect network problems such as a BadGateway. For this we can use the `IsSuccessful` option.
 
-``` go
+```go
 client := keelhttp.NewHTTPClient(
     keelhttp.HTTPClientWithRoundTripware(l,
         roundtripware.CircuitBreaker(&roundtripware.CircuitBreakerSettings{
@@ -99,7 +99,7 @@ client := keelhttp.NewHTTPClient(
 
 Lastly, let's assume we use the client for multiple different endpoints. And we only want to base the circuit breakers state on a single endpoint, but stop request on all endpoints once the breaker changes to open. Again we can use the IsSuccessful option and ignore certain endpoints.
 
-``` go
+```go
 client := keelhttp.NewHTTPClient(
     keelhttp.HTTPClientWithRoundTripware(l,
         roundtripware.CircuitBreaker(&roundtripware.CircuitBreakerSettings{
@@ -125,7 +125,7 @@ client := keelhttp.NewHTTPClient(
 #### Using ratios in ReadyToTrip
 When using ratios in ready to trip, the `Interval` should be set to a non-zero value in order to reset the counts periodically. Otherwise, after a long period of successful requests it will also take a long time to impact the ratio and trip the breaker.
 
-``` go
+```go
     ReadyToTrip: func(counts gobreaker.Counts) bool {
         failureRatio := float64(counts.TotalFailures) / float64(counts.Requests)
         return counts.Requests >= 3 && failureRatio >= 0.6

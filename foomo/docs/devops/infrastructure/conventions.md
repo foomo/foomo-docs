@@ -9,7 +9,9 @@ When creating resources the most important thing is to be consistent.
 
 The following resource convention is preferred if no other exist in the project:
 
-```[customer*]-[project]-[resource*]-[env*]-[name*]-[region/location]-[index]```
+```text
+[customer*]-[project]-[resource*]-[env*]-[name*]-[region/location]-[index]
+```
 
 The fields with a * are required.
 

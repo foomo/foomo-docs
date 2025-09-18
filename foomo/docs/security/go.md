@@ -515,7 +515,7 @@ func main() {
 }
 ```
 The output will likely be:
-```
+```text
 c
 c
 c

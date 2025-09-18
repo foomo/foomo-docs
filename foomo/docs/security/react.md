@@ -139,7 +139,7 @@ Modern applications rely heavily on third-party packages.
 -   **Environment Variables**: Never hardcode API keys or other secrets in your frontend code. Use environment variables (e.g., `.env.local`) and prefix them with `NEXT_PUBLIC_` in Next.js if they need to be exposed to the browser. Keys without the prefix are only available on the server-side.
 
     In `.env.local`:
-    ```
+    ```env
     API_KEY=secret_value
     NEXT_PUBLIC_ANALYTICS_ID=public_value
     ```
@@ -234,7 +234,7 @@ Server Actions are functions that execute on the server. They must be secured pr
 -   **Permissions Check**: Always validate the user's session and permissions at the beginning of a Server Action.
 -   **Input Validation**: Sanitize and validate all input received from the client to prevent vulnerabilities.
 
-    ```javascript
+    ```typescript
     'use server';
 
     import { auth } from '@/lib/auth'; // Your authentication logic
@@ -295,13 +295,13 @@ INLINE_RUNTIME_CHUNK=false npm run build
 Once you've removed inline scripts, you can implement a CSP. The policy can be delivered via a `<meta>` tag in your HTML or through an HTTP header. An HTTP header is generally more flexible.
 
 Here is an example of a strict CSP that only allows resources from the same origin:
-```
+```http
 Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self';
 ```
 In some cases, you may need to allow third-party scripts or styles. If you can't avoid inline scripts, you can use a nonce-based approach. A nonce is a randomly generated string that is unique for each request. You include the nonce in your CSP header and in the script tag.
 
 Example of a nonce-based policy:
-```
+```http
 Content-Security-Policy: script-src 'self' 'nonce-rAnd0m';
 ```
 And in your HTML:
