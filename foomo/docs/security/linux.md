@@ -110,3 +110,11 @@ Harden in layers: identity, system state, data, network, and logging. Use config
 - [ ] `auditd` configured for critical event logging
 - [ ] EDR agent deployed
 - [ ] Regular vulnerability scanning
+
+## Further Reading
+
+- [Passwords](./passwords.md)
+
+### See Also
+
+- [DNS Security](./dns.md)

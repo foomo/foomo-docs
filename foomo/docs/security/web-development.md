@@ -274,3 +274,7 @@ Securing the environment where your application runs.
 - OWASP Web Security Testing Guide v4.2 — Detailed test cases for every category listed above ([OWASP WSTG](https://owasp.org/www-project-web-security-testing-guide/))
 - OWASP Application Security Verification Standard — A catalog of security requirements to build into your development process ([OWASP ASVS](https://owasp.org/www-project-application-security-verification-standard/))
 - OWASP Cheat Sheet Series — Concise, actionable guidance on specific security topics ([OWASP Cheat Sheets](https://cheatsheetseries.owasp.org/))
+
+## Further Reading
+
+- [Passwords](./passwords.md)

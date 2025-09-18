@@ -60,3 +60,12 @@ This checklist summarizes the areas covered by the `Harden-Windows-Security` pro
 ## References
 
 - [Harden-Windows-Security GitHub Repository](https://github.com/HotCakeX/Harden-Windows-Security)
+
+## Further Reading
+
+- [Passwords](./passwords.md)
+- **Windows Subsystem for Linux (WSL)**: Consider using [WSL](https://docs.microsoft.com/en-us/windows/wsl/install) to have a Linux environment directly on Windows.
+
+### See Also
+
+- [DNS Security](./dns.md)

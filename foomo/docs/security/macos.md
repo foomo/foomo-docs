@@ -151,6 +151,49 @@ Harden in layers: identity, device state, data protections, network posture, app
   /usr/bin/pgrep -q oahd && echo "Rosetta 2 is installed" || echo "Rosetta 2 is not installed"
   ```
 
+#### Uninstalling Rosetta 2
+
+If Rosetta 2 is no longer required, you can uninstall it to reduce the system's attack surface. This process requires temporarily disabling System Integrity Protection (SIP).
+
+**1. Disable SIP (System Integrity Protection)**
+
+1.  Boot into Recovery Mode.
+2.  Open a terminal (`Utilities > Terminal`).
+3.  Disable SIP:
+    ```bash
+    csrutil disable
+    ```
+4.  Reboot into macOS.
+
+**2. Uninstall Rosetta**
+
+1.  List all files associated with the Rosetta package:
+    ```bash
+    pkgutil --files com.apple.pkg.RosettaUpdateAuto
+    ```
+2.  Carefully delete all the files and empty directories listed by the previous command.
+3.  Remove the package receipt:
+    ```bash
+    sudo rm /Library/Apple/System/Library/Receipts/com.apple.pkg.RosettaUpdateAuto.*
+    ```
+    Alternatively, try to forget the package (this may not always work):
+    ```bash
+    sudo pkgutil --forget com.apple.pkg.RosettaUpdateAuto
+    ```
+
+**3. Enable SIP**
+
+1.  Boot into Recovery Mode again.
+2.  Open a terminal.
+3.  Enable SIP:
+    ```bash
+    csrutil enable
+    ```
+4.  Confirm with `y` if prompted.
+5.  Reboot into macOS.
+
+*Source: [gist.github.com/p-mng](https://gist.github.com/p-mng/af31593eb2a65f39bcca9e4d2b8e)*
+
 ### High-Risk or Data-Critical Roles
 
 - [ ] AirDrop disabled; external storage blocked or read-only; enforce USB device policy. Use MDM to control USB devices, for example by only allowing approved, encrypted storage.
@@ -237,5 +280,13 @@ For on-demand scanning and removal of malware, adware, and potentially unwanted 
 - [Apple Platform Security Guide](https://support.apple.com/guide/security/welcome/web)
 - [macOS Security and Privacy Guide (GitHub)](https://github.com/drduh/macOS-Security-and-Privacy-Guide)
 - [Jamf Pro Security Documentation](https://www.jamf.com/resources/product-documentation/jamf-pro-security-overview/)
+
+## Further Reading
+
+- [Passwords](./passwords.md)
+
+### See Also
+
+- [DNS Security](./dns.md)
 
 
