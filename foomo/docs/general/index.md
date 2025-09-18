@@ -1,23 +1,14 @@
 ---
-id: index
-sidebar_position: 0
+sidebar_position: 4
 ---
 
-# General guide
+# General
 
-This is a general guide for software developers.
-
-If you are looking for docs of the foomo project - start [here](projects)
-
-## Get started
-
-- [setup your workplace](general/setup/workplace)
-- [security is always first](../security)
-- [setup your computer](general/setup/computer)
-- [look at the essentials](general/essentials)
-- [make sure you are using a package manager](general/package-managers)
-- [install some awesome software](/awesome-software)
-- [more for frontend devs](frontend)
-- [more for backend devs](backend)
-- [start exploring the foomo projects](projects)
+- [Essentials](./essentials.md)
+- [Package Managers](./package-managers.md)
+- [Security](/docs/security/)
+- [Setup](./setup/computer.md)
+- [Technologies](./technologies/SSE.md)
+- [Utilities](./utilities/k9s.md)
+- [Work](./work/general.md)
 
