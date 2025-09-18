@@ -1,6 +1,6 @@
 import React from "react";
 
-import Highlight, { defaultProps } from "prism-react-renderer";
+import { Highlight, defaultProps } from "prism-react-renderer";
 
 const LZString = (() => {
   function o(o, r) {
