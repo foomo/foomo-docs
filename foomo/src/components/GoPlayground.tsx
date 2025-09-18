@@ -18,7 +18,7 @@ import React, { useEffect, useState } from "react";
 import { Iframe } from "./Iframe";
 import { IsItCool } from "./IsItCool";
 
-import Highlight, { defaultProps } from "prism-react-renderer";
+import { Highlight, defaultProps } from "prism-react-renderer";
 import Link from "@docusaurus/Link";
 
 export const GoPlayground = (props: { id: string; proportion: number }) => {

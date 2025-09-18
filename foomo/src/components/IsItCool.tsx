@@ -15,11 +15,14 @@ export const IsItCool = (props: {
   topic: string;
   id: string;
 }) => {
-  const [isCool, setIsCool] = useState(getISCool(props.id));
+  const [isCool, setIsCool] = useState(false);
   useEffect(() => {
-    console.log("well it is cool",props.id, {isCool, SSR})
-  }, [isCool, SSR]);
-  if (!isCool) {
+    if (localStorage.getItem(props.id) === yes) {
+      setIsCool(true);
+    }
+  }, [props.id]);
+
+  if (SSR || !isCool) {
     return (
       <div>
         <button
