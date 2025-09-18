@@ -11,6 +11,7 @@ Secure software development is a practice that integrates security consideration
 
 - [Containers](./containers.md) - Best practices for securing Docker containers, covering the entire lifecycle from building hardened, minimal images to securing the runtime environment and managing data safely.
 - [DNS](./dns.md) - Explains how to enhance online privacy and security by using secure DNS resolvers, covering home network solutions like Pi-hole and public resolvers like Quad9.
+- [Go](./go.md) - A comprehensive guide to Go security, covering vulnerability management, secure coding practices, static analysis, and Go's built-in security features.
 - [Kubernetes](./kubernetes.md) - A comprehensive guide to Kubernetes security, detailing how to secure control plane components, implement network policies, harden workloads with admission controllers, and manage secrets and data.
 - [Linux](./linux.md) - A baseline for hardening Linux systems, focusing on user and access management, automated patching, filesystem encryption, network security with host-based firewalls, and logging.
 - [macOS](./macos.md) - Actionable guidance for securing corporate Macs by leveraging native platform features like FileVault, Gatekeeper, and System Integrity Protection, enforced through a Mobile Device Management (MDM) solution.
