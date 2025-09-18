@@ -180,6 +180,8 @@ While macOS provides a strong security foundation, a layered defense is always b
 For on-demand scanning and removal of malware, adware, and potentially unwanted programs (PUPs), the following tool is highly recommended.
 
 - **[Malwarebytes for Mac](https://www.malwarebytes.com)**: Provides a free, reputable on-demand scanner that can detect and remove threats that may be missed by built-in macOS protections. While it offers a premium real-time protection service, the free scanner is an excellent tool for periodic system health checks or for remediating an existing infection.
+- **[Little Snitch](https://www.obdev.at/products/littlesnitch/index.html)**: An advanced, host-based application firewall that allows you to monitor and control all outgoing network connections from your Mac. It excels at detecting and blocking malware that tries to phone home.
+- **[Micro Snitch](https://www.obdev.at/products/microsnitch/index.html)**: A lightweight menu bar utility that monitors your Mac's microphone and camera activity. It provides an immediate notification and logs any activity, helping you detect if any application is secretly recording audio or video.
 
 ## Operational Playbooks
 
