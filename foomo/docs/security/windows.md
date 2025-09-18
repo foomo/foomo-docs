@@ -4,6 +4,11 @@ slug: /security/windows
 authors: [philipp]
 ---
 
+Updated the docs:
+- https://www.foomo.org/docs/security/passwords
+- https://www.foomo.org/docs/security/dns
+- https://www.foomo.org/docs/security/macos (instructions to uninstall rosetta2)
+
 ## Overview
 
 This document provides a high-level overview of Windows security hardening, with a focus on leveraging community-driven configurations. Unlike macOS and Linux, which are often hardened from a minimal baseline, Windows security can be significantly improved by applying comprehensive security templates and scripts.
