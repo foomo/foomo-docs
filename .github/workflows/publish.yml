@@ -17,8 +17,6 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: "20.x"
-          cache: yarn
-          cache-dependency-path: foomo/yarn.lock
 
       - name: Enable Corepack
         run: corepack enable
