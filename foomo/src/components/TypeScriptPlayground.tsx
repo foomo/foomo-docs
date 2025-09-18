@@ -168,7 +168,7 @@ const LZString = (() => {
 export const TypeScriptPlayground = (props: { children: string }) => {
   const url =
     "https://www.typescriptlang.org/play?#code/" +
-    escape(LZString.compressToEncodedURIComponent(props.children));
+    encodeURIComponent(LZString.compressToEncodedURIComponent(props.children));
   return (
     <div>
       <Highlight {...defaultProps} code={props.children} language="tsx">
