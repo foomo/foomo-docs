@@ -21,13 +21,13 @@ https://github.com/foomo/gotsrpc-playground/blob/main/server/server/helloworld.g
 Service proxy instantiation
 
 ```go reference title="server/main.go"
-https://github.com/foomo/gotsrpc-playground/blob/main/server/main.go#L38
+https://github.com/foomo/gotsrpc-playground/blob/main/server/main.go#L39
 ```
 
 Using the service proxy as a http handler
 
 ```go reference title="server/main.go"
-https://github.com/foomo/gotsrpc-playground/blob/main/server/main.go#L59
+https://github.com/foomo/gotsrpc-playground/blob/main/server/main.go#L69
 ```
 
 ## Next.js TypeScript client

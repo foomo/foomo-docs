@@ -36,3 +36,13 @@ html[data-theme='dark'] {
 html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
+
+.github-code-title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.github-code-title-link:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: underline;
+}

@@ -3337,13 +3337,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@saucelabs/theme-github-codeblock@npm:0.1.1":
-  version: 0.1.1
-  resolution: "@saucelabs/theme-github-codeblock@npm:0.1.1"
-  checksum: 10c0/b0c7d32080ea1caa823e9e1a4441d458f0c8ffd847089cfd2ef4b37a15eb0f869efa48da49695d6b4b371168dcdf389b19bd65b26317a8874d10e6a06caeba78
-  languageName: node
-  linkType: hard
-
 "@sideway/address@npm:^4.1.5":
   version: 4.1.5
   resolution: "@sideway/address@npm:4.1.5"
@@ -6642,7 +6635,6 @@ __metadata:
     "@docusaurus/theme-live-codeblock": "npm:^3.9.2"
     "@docusaurus/theme-search-algolia": "npm:^3.9.2"
     "@mdx-js/react": "npm:^3.0.0"
-    "@saucelabs/theme-github-codeblock": "npm:0.1.1"
     "@tsconfig/docusaurus": "npm:^2.0.2"
     clsx: "npm:^2.1.0"
     prism-react-renderer: "npm:^2.3.1"

@@ -2,6 +2,7 @@
 // Note: type annotations allow type checking and IDEs autocompletion
 
 const {themes} = require('prism-react-renderer');
+const remarkGithubCode = require('./plugins/remark-github-code.ts');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -26,10 +27,12 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           sidebarCollapsed: true,
           editUrl: 'https://github.com/foomo/foomo-docs/tree/main/foomo',
+          beforeDefaultRemarkPlugins: [remarkGithubCode],
         },
         blog: {
           showReadingTime: false,
           editUrl: 'https://github.com/foomo/foomo-docs/tree/main/foomo',
+          beforeDefaultRemarkPlugins: [remarkGithubCode],
         },
         pages: {
 
@@ -42,7 +45,6 @@ const config = {
   ],
   themes: [
     '@docusaurus/theme-live-codeblock',
-    '@saucelabs/theme-github-codeblock'
   ],//, '@docusaurus/theme-search-algolia'],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
